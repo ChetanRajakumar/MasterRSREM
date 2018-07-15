@@ -17,9 +17,16 @@ namespace MasterRSREM.Views
 			InitializeComponent ();
 		}
 
-        async void Handle_Clicked(object sender, System.EventArgs e)
+        //async void Handle_Clicked(object sender, System.EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new MainPage());
+        //}
+
+        public void BackButtonClickedAsync()
         {
-            await Navigation.PushModalAsync(new MainPage());
+            App.Current.MainPage = new NavigationPage(new SignInPage());
+            
+
         }
     }
 }

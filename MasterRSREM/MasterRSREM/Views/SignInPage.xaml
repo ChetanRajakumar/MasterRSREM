@@ -2,6 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MasterRSREM.SignInPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+           
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid BackgroundColor="BlueViolet">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -19,13 +25,25 @@
 
         <Image Grid.Row="1" Aspect="AspectFit"  Source="RSREM_Logo.jpg"></Image>
 
-        <Button StyleClass="Link" Grid.Row="2"  Text="Sign Up" VerticalOptions="Center" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync"></Button>
-        
+        <Button StyleClass="Link" Grid.Row="2"  Text="Sign Up" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync">
+            <!--<Button.Triggers>
+                <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Button.Triggers>-->
+        </Button>
+
 
         <StackLayout Padding="25" Orientation="Horizontal" Grid.Row="3">
             <Label Text="I already have an account." TextColor="White" HorizontalOptions="Start" Margin="0,0,0,25" />
-            <Button StyleClass="Link"  Text="Sign In" Margin="-8,-14" VerticalOptions="Start" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignInClickedAsync"></Button>
-            
+            <Button StyleClass="Link"  Text="Sign In" Margin="-8,-14" VerticalOptions="Start" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignInClickedAsync">
+                <!--<Button.Triggers>
+                    <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                        <Setter Property="Cursor" Value="Hand"/>
+                    </Trigger>
+                </Button.Triggers>-->
+            </Button>
+
         </StackLayout>
 
     </Grid>
