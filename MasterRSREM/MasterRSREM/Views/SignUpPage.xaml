@@ -6,7 +6,13 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="primary">BlueViolet</Color>
-           
+            <!--<Style x:Key="PrimaryButton" TargetType="Button">
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="Prelight" Value="True">
+                        <Setter Property="TextColor" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>-->
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -25,7 +31,7 @@
                 <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
                     <Entry HeightRequest="50" 
                          HorizontalOptions="FillAndExpand"
-                         Placeholder="Name" TextColor="White">
+                         Placeholder="First Name" TextColor="White">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
@@ -61,7 +67,7 @@
                          TextColor="White" 
                          Text="Register"  
                          BackgroundColor="{StaticResource primary}"
-                         HorizontalOptions="FillAndExpand">
+                         HorizontalOptions="FillAndExpand" Clicked="RegisterButtonClickedAsync" >
                         <!--<Button.Style>
                             <Style TargetType="Button">
                                 <Style.Triggers>

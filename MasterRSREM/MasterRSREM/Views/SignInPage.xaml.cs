@@ -1,13 +1,13 @@
-﻿using MasterRSREM.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MasterRSREM
+namespace MasterRSREM.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignInPage : ContentPage
@@ -15,23 +15,31 @@ namespace MasterRSREM
 		public SignInPage ()
 		{
 			InitializeComponent ();
-            
-        }
+		}
 
-       
-        public void SignInClickedAsync()
+        //async void Handle_Clicked(object sender, System.EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new MainPage());
+        //}
+
+        public void BackButtonClickedAsync()
         {
-            App.Current.MainPage = new NavigationPage(new LoginPage());
+            App.Current.MainPage = new NavigationPage(new MainPage());
+            
 
         }
 
-        public void SignUpClickedAsync()
+        public void LoginButtonClickedAsync()
+        {
+            App.Current.MainPage = new NavigationPage(new HomePage());
+
+
+        }
+
+        public void ForgotPasswordClickedAsync()
         {
             App.Current.MainPage = new NavigationPage(new SignUpPage());
-
+            
         }
-
-
-
     }
 }

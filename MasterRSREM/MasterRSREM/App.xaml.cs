@@ -14,7 +14,7 @@ namespace MasterRSREM
 			InitializeComponent();
 
 
-			MainPage = new SignInPage();
+			MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()

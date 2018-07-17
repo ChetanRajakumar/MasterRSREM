@@ -1,29 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:views="clr-namespace:MasterRSREM.Views"
-            x:Class="MasterRSREM.Views.MainPage">
-    <TabbedPage.Children>
-        <NavigationPage Title="Browse">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:ItemsPage />
-            </x:Arguments>
-        </NavigationPage>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterRSREM.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+           
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid BackgroundColor="BlueViolet">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
         
-        <NavigationPage Title="About">
-            <NavigationPage.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_about.png"/>
-                </OnPlatform>
-            </NavigationPage.Icon>
-            <x:Arguments>
-                <views:AboutPage />
-            </x:Arguments>
-        </NavigationPage>
-    </TabbedPage.Children>
-</TabbedPage>
+        <Label Text=" Welcome to RSREM (Rajakumar Son's Product) " 
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand" TextColor="White" Grid.Row="0" />
+
+        <Image Grid.Row="1" Aspect="AspectFit"  Source="RSREM_Logo.jpg"></Image>
+
+        <Button StyleClass="Link" Grid.Row="2"  Text="Sign Up" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync">
+            <!--<Button.Triggers>
+                <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Button.Triggers>-->
+        </Button>
+
+
+        <StackLayout Padding="25" Orientation="Horizontal" Grid.Row="3">
+            <Label Text="I already have an account." TextColor="White" HorizontalOptions="Start" Margin="0,0,0,25" />
+            <Button StyleClass="Link"  Text="Sign In" Margin="-8,-14" VerticalOptions="Start" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignInClickedAsync">
+                <!--<Button.Triggers>
+                    <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                        <Setter Property="Cursor" Value="Hand"/>
+                    </Trigger>
+                </Button.Triggers>-->
+            </Button>
+
+        </StackLayout>
+
+    </Grid>
+  
+</ContentPage>

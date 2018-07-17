@@ -1,51 +1,77 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MasterRSREM.SignInPage">
+             x:Class="MasterRSREM.Views.SignInPage"
+             xmlns:local="clr-namespace:MasterRSREM.Effects">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="primary">BlueViolet</Color>
            
         </ResourceDictionary>
     </ContentPage.Resources>
-    <Grid BackgroundColor="BlueViolet">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        
-        <Label Text=" Welcome to RSREM (Rajakumar Son's Product) " 
-           HorizontalOptions="CenterAndExpand"
-           VerticalOptions="CenterAndExpand" TextColor="White" Grid.Row="0" />
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="BlueViolet">
+            <StackLayout Spacing="0" >
+               
+                <Label HeightRequest="80"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Sign In to RSREM" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+                <StackLayout BackgroundColor="BlueViolet" Margin="0,20,0,0">
+                    <Entry  Margin="20,0,20,0"
+                         HeightRequest="50" TextColor="White"
+                         Placeholder="User Name/Email Id">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
 
-        <Image Grid.Row="1" Aspect="AspectFit"  Source="RSREM_Logo.jpg"></Image>
+                    <Entry Margin="20,0,20,0" TextColor="White"
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+                </StackLayout>
 
-        <Button StyleClass="Link" Grid.Row="2"  Text="Sign Up" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync">
-            <!--<Button.Triggers>
-                <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                    <Setter Property="Cursor" Value="Hand"/>
-                </Trigger>
-            </Button.Triggers>-->
-        </Button>
+                <Button Margin="20,20,20,0" 
+                         HeightRequest="40" 
+                         TextColor="White" 
+                         Text="Login"  
+                         BackgroundColor="BlueViolet"
+                         HorizontalOptions="Center" Clicked="LoginButtonClickedAsync">
+                    <!--<Button.Triggers>
+                        <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                    </Button.Triggers>-->
+                </Button>
 
+                <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
 
-        <StackLayout Padding="25" Orientation="Horizontal" Grid.Row="3">
-            <Label Text="I already have an account." TextColor="White" HorizontalOptions="Start" Margin="0,0,0,25" />
-            <Button StyleClass="Link"  Text="Sign In" Margin="-8,-14" VerticalOptions="Start" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignInClickedAsync">
-                <!--<Button.Triggers>
-                    <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                        <Setter Property="Cursor" Value="Hand"/>
-                    </Trigger>
-                </Button.Triggers>-->
-            </Button>
+                    <Button Margin="0,0,20,0" StyleClass="Link" Text="Forgot password" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="ForgotPasswordClickedAsync">
+                        <!--<Button.Triggers>
+                            <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Button.Triggers>-->
+                    </Button>
 
-        </StackLayout>
+                    <Button Margin="0,0,20,0" StyleClass="Link" Text="Back" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
+                        <!--<Button.Triggers>
+                            <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </Button.Triggers>-->
+                    </Button>
 
-    </Grid>
-  
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

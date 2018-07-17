@@ -19,6 +19,12 @@ namespace MasterRSREM.Views
 
         public void BackButtonClickedAsync()
         {
+            App.Current.MainPage = new NavigationPage(new MainPage());
+
+        }
+
+        public void RegisterButtonClickedAsync()
+        {
             App.Current.MainPage = new NavigationPage(new SignInPage());
 
         }
