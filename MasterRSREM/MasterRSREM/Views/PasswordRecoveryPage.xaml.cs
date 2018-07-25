@@ -16,5 +16,12 @@ namespace MasterRSREM.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        public void RecoverPasswordButtonClickedAsync()
+        {
+           // Fetch Security Question and Show it to user
+
+
+        }
+    }
 }

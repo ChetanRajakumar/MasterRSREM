@@ -38,7 +38,7 @@ namespace MasterRSREM.Views
 
         public void ForgotPasswordClickedAsync()
         {
-            App.Current.MainPage = new NavigationPage(new SignUpPage());
+            App.Current.MainPage = new NavigationPage(new PasswordRecoveryPage());
             
         }
 
