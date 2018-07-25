@@ -6,32 +6,26 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="primary">BlueViolet</Color>
-            <!--<Style x:Key="PrimaryButton" TargetType="Button">
-                <Style.Triggers>
-                    <Trigger TargetType="Button" Property="Prelight" Value="True">
-                        <Setter Property="TextColor" Value="White" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>-->
+            
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView BackgroundColor="BlueViolet">
+        <ScrollView BackgroundColor="PapayaWhip">
             <StackLayout Spacing="10" >
                  <Label HeightRequest="80"  
                           HorizontalOptions="FillAndExpand" 
                           Text="Sign Up to RSREM" 
                           BackgroundColor="{StaticResource primary}"
-                          TextColor="White" 
+                          TextColor="BlanchedAlmond" 
                           FontSize="30" 
                           HorizontalTextAlignment="Center"
                           VerticalTextAlignment="Center"/>
-                   
+
 
                 <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
                     <Entry HeightRequest="50" 
                          HorizontalOptions="FillAndExpand"
-                         Placeholder="First Name" TextColor="White">
+                         Placeholder="First Name" TextColor="DarkSlateGray">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
@@ -39,16 +33,16 @@
 
                     <Entry HeightRequest="50" 
                                   HorizontalOptions="FillAndExpand"
-                                 Placeholder="Last Name" TextColor="White">
+                                 Placeholder="Last Name" TextColor="DarkSlateGray">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
                     </Entry>
                 </StackLayout>
-
-                <Entry  Margin="20,0,20,0" 
-                         HeightRequest="50" 
-                         Placeholder="Email Id" TextColor="White">
+                
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password" TextColor="DarkSlateGray">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
@@ -56,39 +50,61 @@
 
                 <Entry Margin="20,0,20,0" 
                         HeightRequest="50" IsPassword="true"
-                        Placeholder="Password" TextColor="White">
+                        Placeholder="Re-Enter Password" TextColor="DarkSlateGray">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
                 </Entry>
-                <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
+
+                <Entry  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Email Id" TextColor="DarkSlateGray">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Phone Number" TextColor="DarkSlateGray">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+
+                <Picker x:Name="picker" Margin="20,0,20,0"  Title="Click to a select security question" TextColor="DarkSlateGray" SelectedIndex="0" SelectedIndexChanged="picker_SelectedIndexChanged" >
+                    <Picker.Items>
+                        <x:String>Who is your favorite actor, musician, or artist?</x:String>
+                        <x:String>What is the name of your first school?</x:String>
+                        <x:String>What is your favorite color?</x:String>
+                        <x:String>What is your grandmother's maiden name?</x:String>
+                        <x:String>What was the make of your first car?</x:String>
+                        <x:String>What is your favorite color?</x:String>
+                        <x:String>What street did you grow up on?</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Entry x:Name="SecurityAnswerEntry"  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Your Answer" TextColor="DarkSlateGray" IsVisible="False">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <StackLayout Orientation="Horizontal" Padding="20,20,20,20">
                     <Button Margin="0,0,20,0" 
                          HeightRequest="40" 
                          TextColor="White" 
                          Text="Register"  
                          BackgroundColor="{StaticResource primary}"
                          HorizontalOptions="FillAndExpand" Clicked="RegisterButtonClickedAsync" >
-                        <!--<Button.Style>
-                            <Style TargetType="Button">
-                                <Style.Triggers>
-                                    <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                                        <Setter Property="Cursor" Value="Hand"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>-->
+                       
                     </Button>
 
                     <Button StyleClass="Link" Text="Back" HeightRequest="40"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
-                        <!--<Button.Style>
-                            <Style TargetType="Button">
-                                <Style.Triggers>
-                                    <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                                        <Setter Property="Cursor" Value="Hand"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>-->
+                        
                     </Button>
                 </StackLayout>
 

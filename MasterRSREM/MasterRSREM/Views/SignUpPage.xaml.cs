@@ -28,5 +28,10 @@ namespace MasterRSREM.Views
             App.Current.MainPage = new NavigationPage(new SignInPage());
 
         }
+
+        private void picker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SecurityAnswerEntry.IsVisible = true;
+        }
     }
 }

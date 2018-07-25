@@ -10,7 +10,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView BackgroundColor="BlueViolet">
+        <ScrollView BackgroundColor="PapayaWhip">
             <StackLayout Spacing="0" >
                
                 <Label HeightRequest="80"  
@@ -21,16 +21,16 @@
                           FontSize="30" 
                           HorizontalTextAlignment="Center"
                           VerticalTextAlignment="Center"/>
-                <StackLayout BackgroundColor="BlueViolet" Margin="0,20,0,0">
+                <StackLayout BackgroundColor="PapayaWhip" Margin="0,20,0,0">
                     <Entry  Margin="20,0,20,0"
-                         HeightRequest="50" TextColor="White"
+                         HeightRequest="50" TextColor="DarkSlateGray"
                          Placeholder="User Name/Email Id">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
                 </Entry>
 
-                    <Entry Margin="20,0,20,0" TextColor="White"
+                    <Entry Margin="20,0,20,0" TextColor="DarkSlateGray"
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Password">
                     <Entry.Effects>
@@ -38,36 +38,27 @@
                     </Entry.Effects>
                 </Entry>
                 </StackLayout>
-
-                <Button Margin="20,20,20,0" 
+                <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
+                    <Button Margin="0,0,20,0"
                          HeightRequest="40" 
                          TextColor="White" 
-                         Text="Login"  
+                         Text="Sign-In"  
                          BackgroundColor="BlueViolet"
                          HorizontalOptions="Center" Clicked="LoginButtonClickedAsync">
-                    <!--<Button.Triggers>
-                        <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                    </Button.Triggers>-->
-                </Button>
+                        
+                    </Button>
+                    <Label Margin="20,10,0,0" TextColor="DeepPink">Remember Me</Label>
+                    <Switch x:Name="RememberMeSwitch" Margin="-6,0,0,0" Toggled="RememberMeSwitch_Toggled" IsToggled="True" ></Switch>
+                </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
 
                     <Button Margin="0,0,20,0" StyleClass="Link" Text="Forgot password" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="ForgotPasswordClickedAsync">
-                        <!--<Button.Triggers>
-                            <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                                <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                        </Button.Triggers>-->
+                       
                     </Button>
 
                     <Button Margin="0,0,20,0" StyleClass="Link" Text="Back" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
-                        <!--<Button.Triggers>
-                            <Trigger TargetType="Button" Property="IsMouseOver" Value="True">
-                                <Setter Property="Cursor" Value="Hand"/>
-                            </Trigger>
-                        </Button.Triggers>-->
+                       
                     </Button>
 
                 </StackLayout>

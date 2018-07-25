@@ -41,5 +41,10 @@ namespace MasterRSREM.Views
             App.Current.MainPage = new NavigationPage(new SignUpPage());
             
         }
+
+        private void RememberMeSwitch_Toggled(object sender, ToggledEventArgs e)
+        {
+
+        }
     }
 }
