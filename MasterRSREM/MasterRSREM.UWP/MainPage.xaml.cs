@@ -20,7 +20,7 @@ namespace MasterRSREM.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            ImageCircleRenderer.Init();
             LoadApplication(new MasterRSREM.App());
         }
     }

@@ -19,9 +19,16 @@ namespace MasterRSREM.Views
 
         public void RecoverPasswordButtonClickedAsync()
         {
-           // Fetch Security Question and Show it to user
+            // Fetch Security Question and Show it to user
+            //Enable SecurityQuestionLabel and SecurityAnswerEntry
 
 
+        }
+
+        private void ResetPasswordButtonClickedAsync(object sender, EventArgs e)
+        {
+            //Form 
+            //Enable ResetLinkLabel
         }
     }
 }

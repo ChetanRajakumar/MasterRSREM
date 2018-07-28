@@ -22,7 +22,7 @@
                           HorizontalTextAlignment="Center"
                           VerticalTextAlignment="Center"/>
                 <StackLayout BackgroundColor="PapayaWhip" Margin="0,20,0,0">
-                    <Entry  Margin="20,0,20,0"
+                    <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" TextColor="DarkSlateGray"
                          Placeholder="User Name/Email Id">
                     <Entry.Effects>
@@ -31,7 +31,7 @@
                 </Entry>
 
                     <Entry Margin="20,0,20,0" TextColor="DarkSlateGray"
-                        HeightRequest="50" IsPassword="true"
+                        HeightRequest="50" IsPassword="true" FontSize="Small"
                         Placeholder="Password">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
@@ -39,7 +39,7 @@
                 </Entry>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
-                    <Button Margin="0,0,20,0"
+                    <Button Margin="0,0,20,0" FontSize="Small"
                          HeightRequest="40" 
                          TextColor="White" 
                          Text="Sign-In"  
@@ -47,17 +47,17 @@
                          HorizontalOptions="Center" Clicked="LoginButtonClickedAsync">
                         
                     </Button>
-                    <Label Margin="20,10,0,0" TextColor="DeepPink">Remember Me</Label>
+                    <Label Margin="20,10,0,0" TextColor="DeepPink" FontSize="Small">Remember Me</Label>
                     <Switch x:Name="RememberMeSwitch" Margin="-6,0,0,0" Toggled="RememberMeSwitch_Toggled" IsToggled="True" ></Switch>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
 
-                    <Button Margin="0,0,20,0" StyleClass="Link" Text="Forgot password" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="ForgotPasswordClickedAsync">
+                    <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Forgot password" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="ForgotPasswordClickedAsync">
                        
                     </Button>
 
-                    <Button Margin="0,0,20,0" StyleClass="Link" Text="Back" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
+                    <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Back" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
                        
                     </Button>
 

@@ -24,7 +24,7 @@ namespace MasterRSREM.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            ImageCircleRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

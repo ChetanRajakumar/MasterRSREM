@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:ExtendedTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterRSREM.Home"
+            xmlns:local="clr-namespace:MasterRSREM.Views"
+            xmlns:controls="clr-namespace:MasterRSREM.Controls"  BarBackgroundColor="BlueViolet"  >
+   
+    <!--Pages can be added as references or inline-->
+    <NavigationPage  BackgroundColor="PapayaWhip" BarBackgroundColor="BlueViolet" Title="Today" Icon="today.png">
+        <x:Arguments>
+            <local:TodayPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage BackgroundColor="PapayaWhip" BarBackgroundColor="BlueViolet"  Title="Schedule" Icon="schedule.png">
+        <x:Arguments>
+            <local:SchedulePage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage BackgroundColor="PapayaWhip" BarBackgroundColor="BlueViolet"  Title="Settings" Icon="settings.png">
+        <x:Arguments>
+            <local:SettingsPage />
+        </x:Arguments>
+    </NavigationPage>
+</controls:ExtendedTabbedPage>

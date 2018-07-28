@@ -64,6 +64,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ImageCircleRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -139,5 +140,20 @@
       <Project>{169C428C-89E6-47F2-8BF6-3774681FCA66}</Project>
       <Name>MasterRSREM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\RSREM_Logo.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\today.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\rajakumar.jpg" />
   </ItemGroup>
 </Project>

@@ -24,14 +24,14 @@
 
                 <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
                     <Entry HeightRequest="50" 
-                         HorizontalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" FontSize="Small"
                          Placeholder="First Name" TextColor="DarkSlateGray">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
                     </Entry>
 
-                    <Entry HeightRequest="50" 
+                    <Entry HeightRequest="50"  FontSize="Small"
                                   HorizontalOptions="FillAndExpand"
                                  Placeholder="Last Name" TextColor="DarkSlateGray">
                         <Entry.Effects>
@@ -39,8 +39,8 @@
                         </Entry.Effects>
                     </Entry>
                 </StackLayout>
-                
-                <Entry Margin="20,0,20,0" 
+
+                <Entry Margin="20,0,20,0" FontSize="Small"
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Password" TextColor="DarkSlateGray">
                     <Entry.Effects>
@@ -48,7 +48,7 @@
                     </Entry.Effects>
                 </Entry>
 
-                <Entry Margin="20,0,20,0" 
+                <Entry Margin="20,0,20,0" FontSize="Small"
                         HeightRequest="50" IsPassword="true"
                         Placeholder="Re-Enter Password" TextColor="DarkSlateGray">
                     <Entry.Effects>
@@ -56,7 +56,7 @@
                     </Entry.Effects>
                 </Entry>
 
-                <Entry  Margin="20,0,20,0" 
+                <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" 
                          Placeholder="Email Id" TextColor="DarkSlateGray">
                     <Entry.Effects>
@@ -64,7 +64,7 @@
                     </Entry.Effects>
                 </Entry>
 
-                <Entry  Margin="20,0,20,0" 
+                <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" 
                          Placeholder="Phone Number" TextColor="DarkSlateGray">
                     <Entry.Effects>
@@ -73,7 +73,7 @@
                 </Entry>
 
 
-                <Picker x:Name="picker" Margin="20,0,20,0"  Title="Click to a select security question" TextColor="DarkSlateGray" SelectedIndex="0" SelectedIndexChanged="picker_SelectedIndexChanged" >
+                <Picker x:Name="picker" Margin="20,0,20,0" FontSize="Small"  Title="Click to a select security question" TextColor="DarkSlateGray" SelectedIndex="0" SelectedIndexChanged="picker_SelectedIndexChanged" >
                     <Picker.Items>
                         <x:String>Who is your favorite actor, musician, or artist?</x:String>
                         <x:String>What is the name of your first school?</x:String>
@@ -85,7 +85,7 @@
                     </Picker.Items>
                 </Picker>
 
-                <Entry x:Name="SecurityAnswerEntry"  Margin="20,0,20,0" 
+                <Entry x:Name="SecurityAnswerEntry" FontSize="Small"  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Your Answer" TextColor="DarkSlateGray" IsVisible="False">
                     <Entry.Effects>
@@ -99,11 +99,11 @@
                          TextColor="White" 
                          Text="Register"  
                          BackgroundColor="{StaticResource primary}"
-                         HorizontalOptions="FillAndExpand" Clicked="RegisterButtonClickedAsync" >
+                         HorizontalOptions="FillAndExpand" Clicked="RegisterButtonClickedAsync" FontSize="Small" >
                        
                     </Button>
 
-                    <Button StyleClass="Link" Text="Back" HeightRequest="40"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
+                    <Button StyleClass="Link" Text="Back" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="BackButtonClickedAsync">
                         
                     </Button>
                 </StackLayout>
