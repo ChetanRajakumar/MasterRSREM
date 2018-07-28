@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MasterRSREM.Views.SettingsPage" 
-             Icon="settings.png" Title="Settings">
+             Icon="settings.png" Title="Settings"
+             xmlns:controls="clr-namespace:MasterRSREM.Controls">
     <ContentPage.Content>
-        
-            <StackLayout>
-                <Label Text="Settings go here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <StackLayout>
+            <ScrollView>
+            <controls:CircleImage Margin="20" Source="rajakumar.jpg"  Aspect="AspectFit">
+                <controls:CircleImage.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">75</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.WidthRequest>
+                <controls:CircleImage.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">75</On>
+                        <On Platform="WinPhone">75</On>
+                    </OnPlatform>
+                </controls:CircleImage.HeightRequest>
+            </controls:CircleImage>
+            </ScrollView>
+            <Label Text="Settings go here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </StackLayout>
         
     </ContentPage.Content>
