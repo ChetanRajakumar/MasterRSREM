@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterRSREM.Views.MasterHomePageMaster"
+             Title="Master"
+             xmlns:controls="clr-namespace:MasterRSREM.Controls">
+  <StackLayout>
+    <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="Default"
+              HasUnevenRows="true"
+              ItemsSource="{Binding MenuItems}">
+      <ListView.Header>
+                <Grid BackgroundColor="BlueViolet">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                  </Grid.RowDefinitions>
+                            <controls:CircleImage Margin="20" Source="rajakumar.jpg" Grid.Column="1"
+                                Grid.Row="0"  Aspect="AspectFit">
+                                <controls:CircleImage.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, iOS">75</On>
+                                        <On Platform="WinPhone">75</On>
+                                    </OnPlatform>
+                                </controls:CircleImage.WidthRequest>
+                                <controls:CircleImage.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <On Platform="Android, iOS">75</On>
+                                        <On Platform="WinPhone">75</On>
+                                    </OnPlatform>
+                                </controls:CircleImage.HeightRequest>
+                            </controls:CircleImage>
+                    <Label Grid.Column="1" Grid.Row="1" Text="Welcome Rajakumar" Style="{DynamicResource SubtitleStyle}"/>
+                    
+
+                </Grid>
+      </ListView.Header>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid Padding="15,10">
+                            <Button  VerticalOptions="StartAndExpand" FontSize="Small" StyleClass="Link" Text="{Binding Title}" 
+                            HeightRequest="35" HorizontalOptions="StartAndExpand" 
+                            TextColor="BlueViolet" BackgroundColor="PapayaWhip" 
+                            Clicked="MenuItemsClickedEvent"/>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

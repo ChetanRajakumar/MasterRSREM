@@ -31,7 +31,7 @@ namespace MasterRSREM.Views
 
         public void LoginButtonClickedAsync()
         {
-            App.Current.MainPage = new NavigationPage(new Home());
+            App.Current.MainPage = new NavigationPage(new MasterHomePage());
 
 
         }
