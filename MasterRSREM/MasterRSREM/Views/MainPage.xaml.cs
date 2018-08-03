@@ -1,4 +1,5 @@
-﻿using MasterRSREM.Views;
+﻿using MasterRSREM.Models;
+using MasterRSREM.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,6 @@ namespace MasterRSREM
 
         }
 
-
-
+      
     }
 }

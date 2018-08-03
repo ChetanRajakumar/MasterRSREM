@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MasterRSREM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,15 +13,23 @@ namespace MasterRSREM.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignInPage : ContentPage
 	{
-		public SignInPage ()
+        Customer customerItem = new Customer();
+        public SignInPage ()
 		{
 			InitializeComponent ();
+            
+             GetUserNameFromDB();
+
+            userNameEntry.Text = customerItem.EmailID;
+            
 		}
 
-        //async void Handle_Clicked(object sender, System.EventArgs e)
-        //{
-        //    await Navigation.PushModalAsync(new MainPage());
-        //}
+        async void GetUserNameFromDB()
+        {
+             customerItem = await App.Database.GetItemAsync("chetan");
+            
+        }
+       
 
         public void BackButtonClickedAsync()
         {

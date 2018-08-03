@@ -24,6 +24,8 @@ namespace MasterRSREM.Views
 
             BindingContext = new MasterHomePageViewModel();
             ListView = MenuItemsListView;
+
+
         }
 
         private void MenuItemsClickedEvent(object sender, EventArgs e)

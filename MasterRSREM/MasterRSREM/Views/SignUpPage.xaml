@@ -25,7 +25,7 @@
                 <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
                     <Entry HeightRequest="50" 
                          HorizontalOptions="FillAndExpand" FontSize="Small"
-                         Placeholder="First Name" TextColor="DarkSlateGray">
+                         Placeholder="First Name" TextColor="DarkSlateGray" Text="{Binding FirstName}">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
@@ -33,7 +33,7 @@
 
                     <Entry HeightRequest="50"  FontSize="Small"
                                   HorizontalOptions="FillAndExpand"
-                                 Placeholder="Last Name" TextColor="DarkSlateGray">
+                                 Placeholder="Last Name" TextColor="DarkSlateGray" Text="{Binding LastName}">
                         <Entry.Effects>
                             <local:BackgroundEntryEffect />
                         </Entry.Effects>
@@ -42,7 +42,7 @@
 
                 <Entry Margin="20,0,20,0" FontSize="Small"
                         HeightRequest="50" IsPassword="true"
-                        Placeholder="Password" TextColor="DarkSlateGray">
+                        Placeholder="Password" TextColor="DarkSlateGray" Text="{Binding Password}">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
@@ -58,7 +58,7 @@
 
                 <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" 
-                         Placeholder="Email Id" TextColor="DarkSlateGray">
+                         Placeholder="Email Id" TextColor="DarkSlateGray" Text="{Binding EmailID}">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
@@ -66,14 +66,14 @@
 
                 <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" 
-                         Placeholder="Phone Number" TextColor="DarkSlateGray">
+                         Placeholder="Phone Number" TextColor="DarkSlateGray" Text="{Binding PhoneNumber}">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
                 </Entry>
 
 
-                <Picker x:Name="picker" Margin="20,0,20,0" FontSize="Small"  Title="Click to a select security question" TextColor="DarkSlateGray" SelectedIndex="0" SelectedIndexChanged="picker_SelectedIndexChanged" >
+                <Picker x:Name="picker" Margin="20,0,20,0" FontSize="Small" Title="Click to a select security question" TextColor="DarkSlateGray" SelectedIndex="0" SelectedIndexChanged="picker_SelectedIndexChanged" >
                     <Picker.Items>
                         <x:String>Who is your favorite actor, musician, or artist?</x:String>
                         <x:String>What is the name of your first school?</x:String>
@@ -87,7 +87,7 @@
 
                 <Entry x:Name="SecurityAnswerEntry" FontSize="Small"  Margin="20,0,20,0" 
                          HeightRequest="50" 
-                         Placeholder="Your Answer" TextColor="DarkSlateGray" IsVisible="False">
+                         Placeholder="Your Answer" Text="{Binding SecurityAnswer}" TextColor="DarkSlateGray" IsVisible="False">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>

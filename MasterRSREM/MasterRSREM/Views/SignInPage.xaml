@@ -24,7 +24,7 @@
                 <StackLayout BackgroundColor="PapayaWhip" Margin="0,20,0,0">
                     <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" TextColor="DarkSlateGray"
-                         Placeholder="User Name/Email Id">
+                         Placeholder="User Name/Email Id" x:Name="userNameEntry">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>

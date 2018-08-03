@@ -35,7 +35,7 @@
                                     </OnPlatform>
                                 </controls:CircleImage.HeightRequest>
                             </controls:CircleImage>
-                    <Label Grid.Column="1" Grid.Row="1" Text="Welcome Rajakumar" Style="{DynamicResource SubtitleStyle}"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding EmailId}" Style="{DynamicResource SubtitleStyle}"/>
                     
 
                 </Grid>
