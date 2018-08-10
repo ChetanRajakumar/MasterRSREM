@@ -24,7 +24,7 @@
                 <StackLayout BackgroundColor="PapayaWhip" Margin="0,20,0,0">
                     <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" TextColor="DarkSlateGray"
-                         Placeholder="User Name/Email Id" x:Name="userNameEntry">
+                         Placeholder="Email Id" x:Name="userNameEntry">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
@@ -32,11 +32,12 @@
 
                     <Entry Margin="20,0,20,0" TextColor="DarkSlateGray"
                         HeightRequest="50" IsPassword="true" FontSize="Small"
-                        Placeholder="Password">
+                        Placeholder="Password" x:Name="userPasswordEntry">
                     <Entry.Effects>
                         <local:BackgroundEntryEffect />
                     </Entry.Effects>
                 </Entry>
+                    <Label x:Name="errorLoginLabel" Margin="20,0,20,0" IsVisible="False"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
                     <Button Margin="0,0,20,0" FontSize="Small"

@@ -43,11 +43,11 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <Grid Padding="15,10">
-                            <Button  VerticalOptions="StartAndExpand" FontSize="Small" StyleClass="Link" Text="{Binding Title}" 
+             <Grid Padding="15,10" BackgroundColor="PapayaWhip">
+                            <Label  VerticalOptions="StartAndExpand" FontSize="Small" StyleClass="Link" Text="{Binding Title}" 
                             HeightRequest="35" HorizontalOptions="StartAndExpand" 
                             TextColor="BlueViolet" BackgroundColor="PapayaWhip" 
-                            Clicked="MenuItemsClickedEvent"/>
+                            />
             </Grid>
           </ViewCell>
         </DataTemplate>

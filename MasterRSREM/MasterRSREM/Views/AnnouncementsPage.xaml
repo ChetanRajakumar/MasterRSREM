@@ -4,7 +4,7 @@
              x:Class="MasterRSREM.Views.AnnouncementsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="Welcome to announcements page!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
