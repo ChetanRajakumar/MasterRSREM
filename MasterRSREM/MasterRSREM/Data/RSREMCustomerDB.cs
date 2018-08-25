@@ -16,21 +16,22 @@ namespace MasterRSREM.Data
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
+            database.CreateTableAsync<AnnouncementItems>().Wait();
         }
 
-        public Task<List<Customer>> GetItemsAsync()
+        public Task<List<Customer>> GetCustomerItemsAsync()
         {
             return database.Table<Customer>().ToListAsync();
         }
 
         
-        public Task<Customer> GetItemAsync(string emailID)
+        public Task<Customer> GetCustomerItemAsync(string emailID)
         {
             return database.Table<Customer>().Where(i => i.EmailID == emailID).FirstOrDefaultAsync();
         }
 
 
-        public Task<int> SaveItemAsync(Customer customer)
+        public Task<int> SaveCustomerItemAsync(Customer customer)
         {
             if (string.IsNullOrEmpty(customer.EmailID))
             {
@@ -42,7 +43,36 @@ namespace MasterRSREM.Data
             }
         }
 
-        public Task<int> DeleteItemAsync(Customer customer)
+        public Task<int> DeleteCustomerItemAsync(Customer customer)
+        {
+            return database.DeleteAsync(customer);
+        }
+
+        public Task<List<AnnouncementItems>> GetAnnouncementItemsAsync()
+        {
+            return database.Table<AnnouncementItems>().ToListAsync();
+        }
+
+
+        public Task<AnnouncementItems> GetAnnouncementItemsAsync(string title)
+        {
+            return database.Table<AnnouncementItems>().Where(i => i.Title == title).FirstOrDefaultAsync();
+        }
+
+
+        public Task<int> SaveAnnouncementItemAsync(AnnouncementItems announcement)
+        {
+            if (string.IsNullOrEmpty(announcement.Title))
+            {
+                return database.UpdateAsync(announcement);
+            }
+            else
+            {
+                return database.InsertAsync(announcement);
+            }
+        }
+
+        public Task<int> DeleteCustomerItemAsync(AnnouncementItems customer)
         {
             return database.DeleteAsync(customer);
         }

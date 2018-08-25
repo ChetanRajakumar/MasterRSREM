@@ -32,6 +32,14 @@ namespace MasterRSREM
 
         }
 
-      
+        public void AdminLoginClickedAsync()
+        {
+            App.Current.MainPage = new NavigationPage(new SignInPage());
+
+        }
+
+        
+
+
     }
 }

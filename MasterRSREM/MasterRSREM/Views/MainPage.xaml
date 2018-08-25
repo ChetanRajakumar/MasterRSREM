@@ -25,10 +25,12 @@
 
         <Image Grid.Row="1" Aspect="AspectFit"  Source="RSREM_Logo.jpg"></Image>
 
-        <Button StyleClass="Link" Grid.Row="2" FontSize="Small" Text="Sign Up" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync">
-           
-        </Button>
+        <StackLayout Padding="25" Orientation="Horizontal" Grid.Row="2">
+            <Button StyleClass="Link" FontSize="Small" Text="Sign Up" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="SignUpClickedAsync">
 
+            </Button>
+            <Button StyleClass="Link"  FontSize="Small" Text="Admin Login" VerticalOptions="End" TextColor="White" BackgroundColor="BlueViolet" Clicked="AdminLoginClickedAsync"/>
+        </StackLayout>
 
         <StackLayout Padding="25" Orientation="Horizontal" Grid.Row="3">
             <Label Text="I already have an account." TextColor="White" HorizontalOptions="Start" FontSize="Small" Margin="0,0,0,25" />

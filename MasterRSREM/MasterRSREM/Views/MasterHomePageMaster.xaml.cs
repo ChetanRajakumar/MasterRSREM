@@ -17,12 +17,13 @@ namespace MasterRSREM.Views
     public partial class MasterHomePageMaster : ContentPage
     {
         public ListView ListView;
+        public static bool isAdmin;
 
         public MasterHomePageMaster()
         {
             InitializeComponent();
 
-            BindingContext = new MasterHomePageViewModel();
+            BindingContext = new MasterHomePageViewModel(isAdmin);
             ListView = MenuItemsListView;
 
 

@@ -35,7 +35,7 @@ namespace MasterRSREM.Views
             var customerDetails = (Customer)BindingContext;
             customerDetails.SecurityQuestion = picker.SelectedItem.ToString();
             customerDetails.SecurityAnswer = SecurityAnswerEntry.Text;
-            await App.Database.SaveItemAsync(customerDetails);
+            await App.Database.SaveCustomerItemAsync(customerDetails);
             await Navigation.PopAsync();
 
             App.Current.MainPage = new NavigationPage(new SignInPage());

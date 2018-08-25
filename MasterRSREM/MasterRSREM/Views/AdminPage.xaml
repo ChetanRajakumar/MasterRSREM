@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MasterRSREM.Views.AdminPage"
+              xmlns:local="clr-namespace:MasterRSREM.Effects">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="AddAnnouncementsSection" Orientation="Vertical" BackgroundColor="PapayaWhip">
+                <Label Margin="10" FontSize="Medium" StyleClass="Link" Text="Add Announcements" 
+                                        TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                <Entry x:Name="AnnouncementsTitle" Margin="20,0,20,0" FontSize="Small"
+                            HeightRequest="50" Placeholder="Title" TextColor="DarkSlateGray" Text="">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Entry x:Name="AnnouncementsDescription" Margin="20,0,20,0" FontSize="Small"
+                            HeightRequest="50" Placeholder="Description" TextColor="DarkSlateGray">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+            </StackLayout>
+
+            <Button Margin="25" HeightRequest="40" TextColor="White" Text="Add Announcement" BackgroundColor="BlueViolet"
+                         HorizontalOptions="FillAndExpand" Clicked="AddAnnouncementButtonClickedAsync"  FontSize="Small" >
+
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

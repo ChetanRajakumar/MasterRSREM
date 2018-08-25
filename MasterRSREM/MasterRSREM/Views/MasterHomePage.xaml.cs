@@ -13,9 +13,19 @@ namespace MasterRSREM.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterHomePage : MasterDetailPage
     {
-        public MasterHomePage()
+        public MasterHomePage(bool isAdmin = false)
         {
+            if (isAdmin)
+            {
+                MasterHomePageMaster.isAdmin = true;
+            }
+            else
+            {
+                MasterHomePageMaster.isAdmin = false;
+            }
+
             InitializeComponent();
+            
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
 

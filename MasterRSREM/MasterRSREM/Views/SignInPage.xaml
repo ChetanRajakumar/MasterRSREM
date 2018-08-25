@@ -12,15 +12,25 @@
     <ContentPage.Content>
         <ScrollView BackgroundColor="PapayaWhip">
             <StackLayout Spacing="0" >
-               
-                <Label HeightRequest="80"  
+
+                <Label x:Name="normalUserLabel" HeightRequest="80"  
                           HorizontalOptions="FillAndExpand" 
                           Text="Sign In to RSREM" 
                           BackgroundColor="{StaticResource primary}"
                           TextColor="White" 
                           FontSize="30" 
                           HorizontalTextAlignment="Center"
-                          VerticalTextAlignment="Center"/>
+                          VerticalTextAlignment="Center" IsVisible="False"/>
+
+                <Label x:Name="adminLabel" HeightRequest="80"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Admin Sign In to RSREM" 
+                          BackgroundColor="{StaticResource primary}"
+                          TextColor="White" 
+                          FontSize="30" 
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center" IsVisible="False"/>
+                
                 <StackLayout BackgroundColor="PapayaWhip" Margin="0,20,0,0">
                     <Entry  Margin="20,0,20,0" FontSize="Small"
                          HeightRequest="50" TextColor="DarkSlateGray"

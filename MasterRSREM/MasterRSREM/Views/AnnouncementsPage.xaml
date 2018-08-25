@@ -4,9 +4,25 @@
              x:Class="MasterRSREM.Views.AnnouncementsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to announcements page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="Default"
+              HasUnevenRows="true"
+              ItemsSource="{Binding AnnouncementItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="15,10" BackgroundColor="PapayaWhip">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Margin="10" FontSize="Medium" StyleClass="Link" Text="{Binding Title}" 
+                                    TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                                <Label Margin="10"  FontSize="Small" StyleClass="Link" Text="{Binding Description}" 
+                                    TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
