@@ -9,12 +9,16 @@ using Xamarin.Forms.Xaml;
 
 namespace MasterRSREM.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MaintenanceRequestPage : ContentPage
-	{
-		public MaintenanceRequestPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MaintenanceRequestPage : ContentPage
+    {
+        public MaintenanceRequestPage()
+        {
+            InitializeComponent();
+        }
+
+        private void CategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+    }
 }

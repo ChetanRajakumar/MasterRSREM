@@ -35,27 +35,25 @@ namespace MasterRSREM.Views
         public void BackButtonClickedAsync(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new MainPage());
-            
-
         }
 
-        public void LoginButtonClickedAsync(object sender, EventArgs e)
+        public async void LoginButtonClickedAsync(object sender, EventArgs e)
         {
             //App.Current.MainPage = new NavigationPage(new MasterHomePage());
-
-            GetCustomer(userNameEntry.Text);
+            customerItem = await App.Database.GetCustomerItemAsync(userNameEntry.Text);
+            //GetCustomer(userNameEntry.Text);
             if (customerItem.EmailID != "" && customerItem.EmailID == userNameEntry.Text)
             {
                 if ((customerItem.Password == userPasswordEntry.Text))
                 {
                     if (customerItem.EmailID=="chetan.sudeep2004@gmail.com" || customerItem.Type == "Admin" || customerItem.EmailID =="c")
                     {
-                        App.Current.MainPage = new NavigationPage(new MasterHomePage(true));
+                        App.Current.MainPage = new NavigationPage(new MasterHomePage(true,customerItem.FirstName));
                     }
                     else
                     {
 
-                        App.Current.MainPage = new NavigationPage(new MasterHomePage(false));
+                        App.Current.MainPage = new NavigationPage(new MasterHomePage(false, customerItem.FirstName));
                     }
                 }
                 else

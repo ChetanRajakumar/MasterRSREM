@@ -13,7 +13,7 @@ namespace MasterRSREM.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterHomePage : MasterDetailPage
     {
-        public MasterHomePage(bool isAdmin = false)
+        public MasterHomePage(bool isAdmin = false, string userName="")
         {
             if (isAdmin)
             {
@@ -23,7 +23,7 @@ namespace MasterRSREM.Views
             {
                 MasterHomePageMaster.isAdmin = false;
             }
-
+            MasterHomePageMaster.UserName = userName;
             InitializeComponent();
             
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;

@@ -18,7 +18,6 @@ namespace MasterRSREM.Views
 		{
 			InitializeComponent ();
             BindingContext = new AnnouncementViewModel();
-            
         }
         
     }

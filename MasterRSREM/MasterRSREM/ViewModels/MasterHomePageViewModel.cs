@@ -26,8 +26,7 @@ namespace MasterRSREM.ViewModels
                     new MasterHomePageMenuItem { Id = 4, Title = "Book Club House", TargetType= typeof(BookClubHousePage) },
                     new MasterHomePageMenuItem { Id = 5, Title = "Maintenance History", TargetType= typeof(MaintenanceHistoryPage) },
                     new MasterHomePageMenuItem { Id = 6, Title = "Contact Us" , TargetType= typeof(ContactUs)},
-                    new MasterHomePageMenuItem { Id = 7, Title = "Profile Details", TargetType= typeof(ProfileDetails) },
-                    new MasterHomePageMenuItem { Id = 8, Title = "Sign Out" }
+                    new MasterHomePageMenuItem { Id = 7, Title = "Profile Details", TargetType= typeof(ProfileDetails) }
                 });
             }
             else
@@ -41,8 +40,7 @@ namespace MasterRSREM.ViewModels
                     new MasterHomePageMenuItem { Id = 3, Title = "Book Club House", TargetType= typeof(BookClubHousePage) },
                     new MasterHomePageMenuItem { Id = 4, Title = "Maintenance History", TargetType= typeof(MaintenanceHistoryPage) },
                     new MasterHomePageMenuItem { Id = 5, Title = "Contact Us" , TargetType= typeof(ContactUs)},
-                    new MasterHomePageMenuItem { Id = 6, Title = "Profile Details", TargetType= typeof(ProfileDetails) },
-                    new MasterHomePageMenuItem { Id = 7, Title = "Sign Out" }
+                    new MasterHomePageMenuItem { Id = 6, Title = "Profile Details", TargetType= typeof(ProfileDetails) }
                 });
             }
         }

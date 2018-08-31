@@ -4,9 +4,8 @@
              x:Class="MasterRSREM.Views.MaintenanceRequestPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to maintainance request page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Picker x:Name="CategoryPicker" Margin="20,0,20,0" FontSize="Small" Title="Select Category" TextColor="DarkSlateGray" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedIndex="0" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

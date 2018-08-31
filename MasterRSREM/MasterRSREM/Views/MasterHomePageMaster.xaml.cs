@@ -18,6 +18,7 @@ namespace MasterRSREM.Views
     {
         public ListView ListView;
         public static bool isAdmin;
+        public static string UserName { get; set; }
 
         public MasterHomePageMaster()
         {
@@ -25,49 +26,14 @@ namespace MasterRSREM.Views
 
             BindingContext = new MasterHomePageViewModel(isAdmin);
             ListView = MenuItemsListView;
-
+            userNameLabel.Text = UserName;
 
         }
        
-        private void MenuItemsClickedEvent(object sender, EventArgs e)
+        private void SignOutClickedEvent(object sender, EventArgs e)
         {
-            Button menuButton = (Button)sender;
-            if (menuButton.Text == "Sign Out" )
-            {
-                App.Current.MainPage = new NavigationPage(new MainPage());
-            }
-            //switch (menuButton.Text)
-            //{
-            //    case "Announcements":
-            //        Navigation.PushAsync(new AnnouncementsPage());
-            //        //App.Current.MainPage = new NavigationPage(new AnnouncementsPage());
-            //        break;
-            //    case "Request Maintainance":
-            //        App.Current.MainPage = new NavigationPage(new MaintenanceRequestPage());
-            //        break;
-            //    case "Events":
-            //        App.Current.MainPage = new NavigationPage(new EventsPage());
-            //        break;
-            //    case "Book Club House":
-            //        App.Current.MainPage = new NavigationPage(new BookClubHousePage());
-            //        break;
-            //    case "Maintenance History":
-            //        App.Current.MainPage = new NavigationPage(new MaintenanceHistoryPage());
-            //        break;
-            //    case "Contact Us":
-            //        App.Current.MainPage = new NavigationPage(new ContactUs());
-            //        break;
-            //    case "Profile Details":
-            //        App.Current.MainPage = new NavigationPage(new ProfileDetails());
-            //        break;
-            //    case "Sign Out":
-            //        App.Current.MainPage = new NavigationPage(new MainPage());
-            //        break;
-            //    default:
-            //        App.Current.MainPage = new NavigationPage(new MainPage());
-            //        break;
-            //}
-
+           App.Current.MainPage = new NavigationPage(new MainPage());
+            
         }
     }
 }
