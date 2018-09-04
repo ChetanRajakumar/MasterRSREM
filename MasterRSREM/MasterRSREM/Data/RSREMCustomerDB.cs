@@ -17,6 +17,7 @@ namespace MasterRSREM.Data
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Customer>().Wait();
             database.CreateTableAsync<AnnouncementItems>().Wait();
+            database.CreateTableAsync<Categories>().Wait();
         }
 
         public Task<List<Customer>> GetCustomerItemsAsync()
@@ -72,9 +73,38 @@ namespace MasterRSREM.Data
             }
         }
 
-        public Task<int> DeleteCustomerItemAsync(AnnouncementItems customer)
+        public Task<int> DeleteAnnouncementItemAsync(AnnouncementItems announcement)
         {
-            return database.DeleteAsync(customer);
+            return database.DeleteAsync(announcement);
+        }
+
+        public Task<List<Categories>> GetCategoryItemsAsync()
+        {
+            return database.Table<Categories>().ToListAsync();
+        }
+
+
+        public Task<Categories> GetCategoryItemsAsync(string categoryItem)
+        {
+            return database.Table<Categories>().Where(i => i.Category == categoryItem).FirstOrDefaultAsync();
+        }
+
+
+        public Task<int> SaveCategoryItemAsync(Categories categoryItem)
+        {
+            if (string.IsNullOrEmpty(categoryItem.Category))
+            {
+                return database.UpdateAsync(categoryItem);
+            }
+            else
+            {
+                return database.InsertAsync(categoryItem);
+            }
+        }
+
+        public Task<int> DeleteCategoryItemAsync(Categories categoryItem)
+        {
+            return database.DeleteAsync(categoryItem);
         }
     }
 }

@@ -1,10 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MasterRSREM.Views.MaintenanceRequestPage">
+             x:Class="MasterRSREM.Views.MaintenanceRequestPage"
+              xmlns:local="clr-namespace:MasterRSREM.Effects">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="CategoryPicker" Margin="20,0,20,0" FontSize="Small" Title="Select Category" TextColor="DarkSlateGray" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Name}" SelectedIndex="0" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged" />
+            <Picker x:Name="CategoryPicker" Margin="20,0,20,0" FontSize="Small" Title="Select Category" TextColor="DarkSlateGray" ItemsSource="{Binding CategoryItems}" ItemDisplayBinding="{Binding Category}" SelectedIndex="0" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged" />
+            <Entry x:Name="DescriptionEntry" FontSize="Small"  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Description" TextColor="DarkSlateGray">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+            <Entry x:Name="AccessInstEntry" FontSize="Small"  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Access Instruction" TextColor="DarkSlateGray">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+            <Label Text="Voice Memo" Margin="20"></Label>
+            <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
+                <Button StyleClass="Link" Text="Record" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="RecordButton_Clicked"/>
+                <Button StyleClass="Link" Text="Pause" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="PauseButton_Clicked"/>
+                <Button StyleClass="Link" Text="Stop" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="StopButton_Clicked"/>
+             </StackLayout>
 
         </StackLayout>
     </ContentPage.Content>

@@ -17,16 +17,29 @@ namespace MasterRSREM.Views
 		public AdminPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new AnnouncementItems();
+            
+            
         }
 
         public async void AddAnnouncementButtonClickedAsync(object sender, EventArgs e)
         {
-
+            BindingContext = new AnnouncementItems();
             var announcementsDetails = (AnnouncementItems)BindingContext;
             announcementsDetails.Title = AnnouncementsTitle.Text;
             announcementsDetails.Description = AnnouncementsDescription.Text;
             await App.Database.SaveAnnouncementItemAsync(announcementsDetails);
+            await Navigation.PopAsync();
+        }
+
+        
+
+        public async void AddCategoryButtonClickedAsync(object sender, EventArgs e)
+        {
+            BindingContext = new Categories();
+
+            var categoryDetails = (Categories)BindingContext;
+            categoryDetails.Category = CategoryEntry.Text;
+            await App.Database.SaveCategoryItemAsync(categoryDetails);
             await Navigation.PopAsync();
         }
 
