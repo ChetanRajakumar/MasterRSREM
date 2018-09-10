@@ -39,8 +39,18 @@ namespace MasterRSREM.Views
 
         public async void LoginButtonClickedAsync(object sender, EventArgs e)
         {
+            if (customerItem == null)
+            {
+                customerItem = new Customer();
+            }
             //App.Current.MainPage = new NavigationPage(new MasterHomePage());
             customerItem = await App.Database.GetCustomerItemAsync(userNameEntry.Text);
+
+            if (customerItem == null)
+            {
+                customerItem = new Customer();
+                customerItem = await App.Database.GetCustomerItemAsync(userNameEntry.Text);
+            }
             //GetCustomer(userNameEntry.Text);
             if (customerItem.EmailID != "" && customerItem.EmailID == userNameEntry.Text)
             {

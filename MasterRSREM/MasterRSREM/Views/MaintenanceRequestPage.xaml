@@ -27,12 +27,34 @@
                 </Entry.Effects>
             </Entry>
             <Label Text="Voice Memo" Margin="20"></Label>
-            <StackLayout Orientation="Horizontal" Margin="20,0,20,0">
-                <Button StyleClass="Link" Text="Record" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="RecordButton_Clicked"/>
-                <Button StyleClass="Link" Text="Pause" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="PauseButton_Clicked"/>
-                <Button StyleClass="Link" Text="Stop" HeightRequest="40" FontSize="Small"  HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="StopButton_Clicked"/>
+            <StackLayout Orientation="Horizontal" Margin="20">
+                <Button StyleClass="Link" Text="Record" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="RecordButton_Clicked"/>
+                <Button StyleClass="Link" Text="Pause" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="PauseButton_Clicked"/>
+                <Button StyleClass="Link" Text="Stop" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="StopButton_Clicked"/>
              </StackLayout>
-
+            <ScrollView Orientation="Both">
+            <Grid Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"  />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="PhotoImage1" Grid.Row="0" Grid.Column="0"/>
+                <Image x:Name="PhotoImage2" Grid.Row="0" Grid.Column="1"/>
+                <Image x:Name="PhotoImage3" Grid.Row="0" Grid.Column="2"/>
+                <Image x:Name="PhotoImage4" Grid.Row="0" Grid.Column="3"/>
+                <Image x:Name="PhotoImage5" Grid.Row="0" Grid.Column="4"/>
+              </Grid>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" Margin="20">
+                <Button  x:Name="CameraButton" FontSize="Small" StyleClass="Link" HeightRequest="40" HorizontalOptions="Start" VerticalOptions="End" Text="Add Photo"  TextColor="White" BackgroundColor="{StaticResource primary}"  />
+                <Button  FontSize="Small" StyleClass="Link" Text="Send Request" HeightRequest="40" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" BackgroundColor="{StaticResource primary}" Clicked="SendRequest_ButtonClicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
