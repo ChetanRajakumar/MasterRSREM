@@ -38,10 +38,10 @@ namespace MasterRSREM
         {
             get
             {
-                
+
                 if (customerDatabase == null)
                 {
-                    customerDatabase = new RSREMCustomerDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "CustomerSQLite.db3"));
+                    customerDatabase = new RSREMCustomerDB();
                 }
                 return customerDatabase;
             }

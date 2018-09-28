@@ -17,7 +17,7 @@ namespace MasterRSREM.Views
 			InitializeComponent ();
 		}
 
-        public void RecoverPasswordButtonClickedAsync()
+        public void RecoverPasswordButtonClickedAsync(object sender, EventArgs e)
         {
             // Fetch Security Question and Show it to user
             //Enable SecurityQuestionLabel and SecurityAnswerEntry

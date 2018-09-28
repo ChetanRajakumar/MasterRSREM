@@ -1,4 +1,5 @@
 ﻿using MasterRSREM.Models;
+using MasterRSREM.RestClient;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -7,104 +8,96 @@ using System.Threading.Tasks;
 
 namespace MasterRSREM.Data
 {
-   
+
     public class RSREMCustomerDB
     {
-        readonly SQLiteAsyncConnection database;
+        CustomerRestClient<Customer> customerRestClient = new CustomerRestClient<Customer>();
+        AnnouncementRestClient<AnnouncementItems> announcementItemsRestClient = new AnnouncementRestClient<AnnouncementItems>();
+        CategoriesRestClient<Categories> categoriesRestClient = new CategoriesRestClient<Categories>();
 
-        public RSREMCustomerDB(string dbPath)
-        {
-            database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<Customer>().Wait();
-            database.CreateTableAsync<AnnouncementItems>().Wait();
-            database.CreateTableAsync<Categories>().Wait();
+        Customer customerItem = new Customer();
+        AnnouncementItems announcementItem = new AnnouncementItems();
+        Categories categorieItem = new Categories();
+       
+        public RSREMCustomerDB()
+        { 
         }
 
-        public Task<List<Customer>> GetCustomerItemsAsync()
+       
+        public async Task<Customer> GetCustomerItemAsync(string emailID)
         {
-            return database.Table<Customer>().ToListAsync();
-        }
-
-        
-        public Task<Customer> GetCustomerItemAsync(string emailID)
-        {
-            return database.Table<Customer>().Where(i => i.EmailID == emailID).FirstOrDefaultAsync();
-        }
-
-
-        public Task<int> SaveCustomerItemAsync(Customer customer)
-        {
-            if (string.IsNullOrEmpty(customer.EmailID))
-            {
-                return database.UpdateAsync(customer);
-            }
-            else
-            {
-                return database.InsertAsync(customer);
-            }
-        }
-
-        public Task<int> DeleteCustomerItemAsync(Customer customer)
-        {
-            return database.DeleteAsync(customer);
-        }
-
-        public Task<List<AnnouncementItems>> GetAnnouncementItemsAsync()
-        {
-            return database.Table<AnnouncementItems>().ToListAsync();
+            customerItem = await customerRestClient.GetAsync(emailID);
+            return customerItem;
         }
 
 
-        public Task<AnnouncementItems> GetAnnouncementItemsAsync(string title)
+        public async Task<bool> SaveCustomerItemAsync(Customer customer)
         {
-            return database.Table<AnnouncementItems>().Where(i => i.Title == title).FirstOrDefaultAsync();
+            bool success = await customerRestClient.PostAsync(customer);
+            return success;
+        }
+
+        public async Task<bool> DeleteCustomerItemAsync(string emailID)
+        {
+            bool success = await customerRestClient.DeleteAsync(emailID);
+            return success;
+        }
+
+        public async Task<List<AnnouncementItems>> GetAnnouncementItemsAsync()
+        {
+            List<AnnouncementItems> announcementItems = new List<AnnouncementItems>();
+            announcementItems = await announcementItemsRestClient.GetAsync();
+            return announcementItems;
         }
 
 
-        public Task<int> SaveAnnouncementItemAsync(AnnouncementItems announcement)
+        public async Task<AnnouncementItems> GetAnnouncementItemsAsync(string title)
         {
-            if (string.IsNullOrEmpty(announcement.Title))
-            {
-                return database.UpdateAsync(announcement);
-            }
-            else
-            {
-                return database.InsertAsync(announcement);
-            }
-        }
-
-        public Task<int> DeleteAnnouncementItemAsync(AnnouncementItems announcement)
-        {
-            return database.DeleteAsync(announcement);
-        }
-
-        public Task<List<Categories>> GetCategoryItemsAsync()
-        {
-            return database.Table<Categories>().ToListAsync();
+            announcementItem = await announcementItemsRestClient.GetAsync(title);
+            return announcementItem;
         }
 
 
-        public Task<Categories> GetCategoryItemsAsync(string categoryItem)
+        public async Task<bool> SaveAnnouncementItemAsync(AnnouncementItems announcement)
         {
-            return database.Table<Categories>().Where(i => i.Category == categoryItem).FirstOrDefaultAsync();
+            bool success = await announcementItemsRestClient.PostAsync(announcement);
+            return success;
+           
+        }
+
+        public async Task<bool> DeleteAnnouncementItemAsync(string title)
+        {
+            bool success = await customerRestClient.DeleteAsync(title);
+            return success;
+        }
+
+        public async Task<List<Categories>> GetCategoryItemsAsync()
+        {
+            List<Categories> categoryItems = new List<Categories>();
+            categoryItems = await categoriesRestClient.GetAsync();
+            return categoryItems;
         }
 
 
-        public Task<int> SaveCategoryItemAsync(Categories categoryItem)
+        public async Task<Categories> GetCategoryItemsAsync(string category)
         {
-            if (string.IsNullOrEmpty(categoryItem.Category))
-            {
-                return database.UpdateAsync(categoryItem);
-            }
-            else
-            {
-                return database.InsertAsync(categoryItem);
-            }
+            categorieItem = await categoriesRestClient.GetAsync(category);
+            return categorieItem;
         }
 
-        public Task<int> DeleteCategoryItemAsync(Categories categoryItem)
+
+        public async Task<bool> SaveCategoryItemAsync(Categories category)
         {
-            return database.DeleteAsync(categoryItem);
+            bool success = await categoriesRestClient.PostAsync(category);
+            return success;
+
         }
+
+        public async Task<bool> DeleteCategoryItemAsync(string category)
+        {
+            bool success = await categoriesRestClient.DeleteAsync(category);
+            return success;
+        }
+       
     }
 }

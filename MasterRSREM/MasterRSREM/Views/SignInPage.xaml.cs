@@ -39,53 +39,50 @@ namespace MasterRSREM.Views
 
         public async void LoginButtonClickedAsync(object sender, EventArgs e)
         {
-            if (customerItem == null)
+            try
             {
-                customerItem = new Customer();
-            }
-            //App.Current.MainPage = new NavigationPage(new MasterHomePage());
-            customerItem = await App.Database.GetCustomerItemAsync(userNameEntry.Text);
-
-            if (customerItem == null)
-            {
-                customerItem = new Customer();
                 customerItem = await App.Database.GetCustomerItemAsync(userNameEntry.Text);
-            }
-            //GetCustomer(userNameEntry.Text);
-            if (customerItem.EmailID != "" && customerItem.EmailID == userNameEntry.Text)
-            {
-                if ((customerItem.Password == userPasswordEntry.Text))
-                {
-                    if (customerItem.EmailID=="chetan.sudeep2004@gmail.com" || customerItem.Type == "Admin" || customerItem.EmailID =="c")
+                
+                //GetCustomer(userNameEntry.Text);
+                if(customerItem!= null)
+                { 
+                    if (customerItem.EmailID == userNameEntry.Text && customerItem.Password == userPasswordEntry.Text)
                     {
-                        App.Current.MainPage = new NavigationPage(new MasterHomePage(true,customerItem.FirstName));
+                        if(customerItem.Type == "Admin" )
+                        {
+                            App.Current.MainPage = new NavigationPage(new MasterHomePage(true, customerItem.FirstName + " " + customerItem.LastName));
+                        }
+                        else
+                        {
+
+                            App.Current.MainPage = new NavigationPage(new MasterHomePage(false, customerItem.FirstName + " " + customerItem.LastName));
+                        }
                     }
                     else
                     {
-
-                        App.Current.MainPage = new NavigationPage(new MasterHomePage(false, customerItem.FirstName));
+                        errorLoginLabel.IsVisible = true;
+                        errorLoginLabel.Text = "In-Correct Password, Try again";
                     }
                 }
                 else
                 {
                     errorLoginLabel.IsVisible = true;
-                    errorLoginLabel.Text = "In-Correct Password, Try again";
+                    errorLoginLabel.Text = "Email-ID not registered, Please Sign-up";
                 }
+
             }
-            else
+            catch (Exception ex)
             {
+
                 errorLoginLabel.IsVisible = true;
-                errorLoginLabel.Text = "Email-ID not registered, Please Sign-up";
+                errorLoginLabel.Text = ex.Message;
             }
+           
 
 
         }
 
-        public async void GetCustomer(string emailId)
-        {
-            customerItem = await App.Database.GetCustomerItemAsync(emailId);
-        }
-
+       
         public void ForgotPasswordClickedAsync(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new PasswordRecoveryPage());

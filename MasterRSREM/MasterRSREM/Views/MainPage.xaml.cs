@@ -20,19 +20,19 @@ namespace MasterRSREM
         }
 
        
-        public void SignInClickedAsync()
+        public void SignInClickedAsync(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new SignInPage());
 
         }
 
-        public void SignUpClickedAsync()
+        public void SignUpClickedAsync(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new SignUpPage());
 
         }
 
-        public void AdminLoginClickedAsync()
+        public void AdminLoginClickedAsync(object sender, EventArgs e)
         {
             App.Current.MainPage = new NavigationPage(new SignInPage());
 
