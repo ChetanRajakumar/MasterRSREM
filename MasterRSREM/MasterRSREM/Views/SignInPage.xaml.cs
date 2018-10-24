@@ -48,6 +48,7 @@ namespace MasterRSREM.Views
                 { 
                     if (customerItem.EmailID == userNameEntry.Text && customerItem.Password == userPasswordEntry.Text)
                     {
+                        MasterHomePageMaster.LoggedInEmailID = customerItem.EmailID;
                         if(customerItem.Type == "Admin" )
                         {
                             App.Current.MainPage = new NavigationPage(new MasterHomePage(true, customerItem.FirstName + " " + customerItem.LastName));

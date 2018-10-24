@@ -1,4 +1,8 @@
-﻿using Android.Media;
+﻿using Android.Graphics;
+using Android.Media;
+using MasterRSREM.Data;
+using MasterRSREM.Helper;
+using MasterRSREM.Models;
 using MasterRSREM.ViewModels;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -6,6 +10,7 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +22,10 @@ namespace MasterRSREM.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MaintenanceRequestPage : ContentPage
     {
-        bool busy;
-        MediaPlayer mediaPlayer = new MediaPlayer();
+        public bool busy;
+        public Byte[] imageByte;
+        RecordHelper recordHelper = new RecordHelper();
+        MaintainenceRequestEntities maintainenceRequestItem = new MaintainenceRequestEntities();
         public MaintenanceRequestPage()
         {
             InitializeComponent();
@@ -93,11 +100,14 @@ namespace MasterRSREM.Views
             busy = false;
         }
 
+        
         private async void TakePictureAsync(Xamarin.Forms.Image photoImage)
         {
+            System.IO.Stream imageStream = null;
             var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
                 Directory = "Test",
+                Name = "test.jpg",
                 SaveToAlbum = true,
                 CompressionQuality = 75,
                 CustomPhotoSize = 100,
@@ -106,10 +116,13 @@ namespace MasterRSREM.Views
                 DefaultCamera = CameraDevice.Front
             });
 
-            if (file == null) return;
+            if (file == null) return ;
 
             await DisplayAlert("File Location", file.Path, "OK");
 
+            imageStream = file.GetStream();
+            BinaryReader br = new BinaryReader(imageStream);
+            imageByte = br.ReadBytes((int)imageStream.Length);
 
             photoImage.Source = ImageSource.FromStream(() =>
             {
@@ -118,29 +131,50 @@ namespace MasterRSREM.Views
                 return stream;
 
             });
+
+            
+            
         }
 
         private void CategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Categories categoryItem = new Categories();
+            categoryItem = (Categories) CategoryPicker.SelectedItem;
+            maintainenceRequestItem.Category = categoryItem.Category;
         }
 
         private void RecordButton_Clicked(object sender, EventArgs e)
         {
-            mediaPlayer.Start();
+            recordHelper.StartAsync();
+          
         }
 
         private void PauseButton_Clicked(object sender, EventArgs e)
         {
-            mediaPlayer.Pause();
+            recordHelper.PauseRecorder();
         }
 
         private void StopButton_Clicked(object sender, EventArgs e)
         {
-            mediaPlayer.Stop();
+            recordHelper.Stop();
         }
 
-        private void SendRequest_ButtonClicked(object sender, EventArgs e)
+        private async void SendRequest_ButtonClicked(object sender, EventArgs e)
         {
+            if (File.Exists(RecordHelper.audioFilePath))
+            {
+                maintainenceRequestItem.VoiceRequest = System.IO.File.ReadAllBytes(RecordHelper.audioFilePath);
+            }
+            maintainenceRequestItem.ImagesList = imageByte;
+            maintainenceRequestItem.RequestDescription = DescriptionEntry.Text;
+            maintainenceRequestItem.RequestDate = DateTime.Today;
+            maintainenceRequestItem.AccessInstructions = AccessInstEntry.Text;
+            maintainenceRequestItem.EmailId = RSREMCustomerDB.CustomerEmailID;
+
+            await App.Database.SaveMaintainenceRequestItemAsync(maintainenceRequestItem);
         }
     }
+
+
+
 }

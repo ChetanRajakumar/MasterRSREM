@@ -13,13 +13,13 @@ namespace MasterRSREM.ViewModels
     class AnnouncementViewModel : INotifyPropertyChanged
     {
         public List<AnnouncementItems> AnnouncementItems { get; set; }
-        public AnnouncementViewModel()
+        public AnnouncementViewModel(string emailId)
         {
-            GetAnnouncementItems();
+            GetAnnouncementItems(emailId);
         }
-        public async void GetAnnouncementItems()
+        public async void GetAnnouncementItems(string emailId)
         {
-            AnnouncementItems = await App.Database.GetAnnouncementItemsAsync();
+            AnnouncementItems = await App.Database.GetAnnouncementItemsAsync(emailId);
             //AnnouncementItems = items;
             OnPropertyChanged("AnnouncementItems");
         }

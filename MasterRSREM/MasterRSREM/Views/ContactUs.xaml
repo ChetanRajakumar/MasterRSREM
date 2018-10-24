@@ -2,11 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MasterRSREM.Views.ContactUs">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to contact us page!"
+            <Label Text="You may either speak with our executive or drop us an email regarding your query"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource primary}"
+                          TextColor="White" />
+            <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
+                <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Call" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="CallButton_Clicked">
+                </Button>
+                <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Email" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="EmailButton_Clicked">
+                </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

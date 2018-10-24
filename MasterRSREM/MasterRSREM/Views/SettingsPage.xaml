@@ -7,20 +7,22 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-            <controls:CircleImage Margin="20" Source="rajakumar.jpg"  Aspect="AspectFit">
-                <controls:CircleImage.WidthRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
+                <controls:CircleImage Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
+                                Grid.Row="0"  Aspect="AspectFit">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS">75</On>
-                        <On Platform="WinPhone">75</On>
-                    </OnPlatform>
-                </controls:CircleImage.WidthRequest>
-                <controls:CircleImage.HeightRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
                             <On Platform="Android, iOS">75</On>
-                        <On Platform="WinPhone">75</On>
-                    </OnPlatform>
-                </controls:CircleImage.HeightRequest>
-            </controls:CircleImage>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+
             </ScrollView>
             <Label Text="Settings go here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             </StackLayout>

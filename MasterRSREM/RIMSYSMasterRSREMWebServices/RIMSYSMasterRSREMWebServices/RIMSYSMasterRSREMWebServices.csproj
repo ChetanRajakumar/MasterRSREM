@@ -205,6 +205,8 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomersMVCController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaintainenceRequestEntitiesController.cs" />
+    <Compile Include="Controllers\MaintainenceRequestEntitiesMVCController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +214,7 @@
     <Compile Include="Models\AnnouncementItems.cs" />
     <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\MaintainenceRequestEntities.cs" />
     <Compile Include="Models\RIMSYSMasterRSREMContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -325,6 +328,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\MaintainenceRequestEntitiesMVC\Create.cshtml" />
+    <Content Include="Views\MaintainenceRequestEntitiesMVC\Delete.cshtml" />
+    <Content Include="Views\MaintainenceRequestEntitiesMVC\Details.cshtml" />
+    <Content Include="Views\MaintainenceRequestEntitiesMVC\Edit.cshtml" />
+    <Content Include="Views\MaintainenceRequestEntitiesMVC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -24,5 +24,7 @@ namespace RIMSYSMasterRSREMWebServices.Models
         public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.Categories> Categories { get; set; }
 
         public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.AnnouncementItems> AnnouncementItems { get; set; }
+
+        public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.MaintainenceRequestEntities> MaintainenceRequestEntities { get; set; }
     }
 }

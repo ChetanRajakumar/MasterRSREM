@@ -17,7 +17,7 @@ namespace MasterRSREM.Views
         public AnnouncementsPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new AnnouncementViewModel();
+            BindingContext = new AnnouncementViewModel(MasterHomePageMaster.LoggedInEmailID);
         }
         
     }

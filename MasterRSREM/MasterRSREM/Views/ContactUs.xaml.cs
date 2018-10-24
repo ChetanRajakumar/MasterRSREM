@@ -16,5 +16,17 @@ namespace MasterRSREM.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void CallButton_Clicked(object sender, EventArgs e)
+        {
+            //Open Dail pad and enter allow user to call customer care number
+        }
+
+        private void EmailButton_Clicked(object sender, EventArgs e)
+        {
+            //Open outlook and send email to customer support team
+        }
+
+        
+    }
 }

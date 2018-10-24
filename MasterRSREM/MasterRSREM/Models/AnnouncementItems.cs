@@ -9,6 +9,8 @@ namespace MasterRSREM.Models
     {
             [PrimaryKey, AutoIncrement]
             public int ID { get; set; }
+
+            public string EmailId { get; set; }
             public string Title { get; set; }
             public string Description { get; set; }
             

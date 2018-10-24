@@ -14,18 +14,24 @@ namespace MasterRSREM.Data
         CustomerRestClient<Customer> customerRestClient = new CustomerRestClient<Customer>();
         AnnouncementRestClient<AnnouncementItems> announcementItemsRestClient = new AnnouncementRestClient<AnnouncementItems>();
         CategoriesRestClient<Categories> categoriesRestClient = new CategoriesRestClient<Categories>();
+        MaintainenceRequestRestClient<MaintainenceRequestEntities> maintainenceRequestRestClient = new MaintainenceRequestRestClient<MaintainenceRequestEntities>();
 
         Customer customerItem = new Customer();
         AnnouncementItems announcementItem = new AnnouncementItems();
         Categories categorieItem = new Categories();
-       
+        MaintainenceRequestEntities maintainenceRequestItem = new MaintainenceRequestEntities();
+
+        public static string CustomerEmailID { get; set; }
+
         public RSREMCustomerDB()
         { 
+
         }
 
        
         public async Task<Customer> GetCustomerItemAsync(string emailID)
         {
+            CustomerEmailID = emailID;
             customerItem = await customerRestClient.GetAsync(emailID);
             return customerItem;
         }
@@ -51,10 +57,11 @@ namespace MasterRSREM.Data
         }
 
 
-        public async Task<AnnouncementItems> GetAnnouncementItemsAsync(string title)
+        public async Task<List<AnnouncementItems>> GetAnnouncementItemsAsync(string emailId)
         {
-            announcementItem = await announcementItemsRestClient.GetAsync(title);
-            return announcementItem;
+            List<AnnouncementItems> announcementItems = new List<AnnouncementItems>();
+            announcementItems = await announcementItemsRestClient.GetAsync(emailId);
+            return announcementItems;
         }
 
 
@@ -98,6 +105,33 @@ namespace MasterRSREM.Data
             bool success = await categoriesRestClient.DeleteAsync(category);
             return success;
         }
-       
+
+        public async Task<List<MaintainenceRequestEntities>> GetMaintainenceRequestItemsAsync()
+        {
+            List<MaintainenceRequestEntities> maintainenceRequestEntities = new List<MaintainenceRequestEntities>();
+            maintainenceRequestEntities = await maintainenceRequestRestClient.GetAsync();
+            return maintainenceRequestEntities;
+        }
+
+        public async Task<List<MaintainenceRequestEntities>> GetMaintainenceRequestItemsAsync(string emailID)
+        {
+            List<MaintainenceRequestEntities> maintainenceRequestEntities = new List<MaintainenceRequestEntities>();
+            maintainenceRequestEntities = await maintainenceRequestRestClient.GetAsync(emailID);
+            return maintainenceRequestEntities;
+        }
+
+
+        public async Task<bool> SaveMaintainenceRequestItemAsync(MaintainenceRequestEntities maintainenceRequestItem)
+        {
+            bool success = await maintainenceRequestRestClient.PostAsync(maintainenceRequestItem);
+            return success;
+        }
+
+        public async Task<bool> DeleteMaintainenceRequestAsync(string emailID)
+        {
+            bool success = await maintainenceRequestRestClient.DeleteAsync(emailID);
+            return success;
+        }
+
     }
 }

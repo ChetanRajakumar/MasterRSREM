@@ -32,6 +32,14 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             return db.AnnouncementItems.Where(c => c.Title == title).FirstOrDefaultAsync<AnnouncementItems>();
         }
 
+        // GET: api/GetAnnouncementItemsBasedOnEmailID/?emailId=chetan.sudeep2004@gmail.com
+        [ResponseType(typeof(AnnouncementItems))]
+        [System.Web.Mvc.ActionName("GetAnnouncementItemsBasedOnEmailID")]
+        public IQueryable<AnnouncementItems> GetAnnouncementItemsBasedOnEmailID(string emailID)
+        {
+            return db.AnnouncementItems.Where(c => c.EmailId == emailID);
+        }
+
         // POST: api/AnnouncementItems
         [ResponseType(typeof(AnnouncementItems))]
         public IHttpActionResult PostAnnouncementItems(AnnouncementItems announcementItems)

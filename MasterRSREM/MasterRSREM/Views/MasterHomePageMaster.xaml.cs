@@ -20,6 +20,8 @@ namespace MasterRSREM.Views
         public static bool isAdmin;
         public static string UserName { get; set; }
 
+        public static string LoggedInEmailID { get; set; }
+
         public MasterHomePageMaster()
         {
             InitializeComponent();
