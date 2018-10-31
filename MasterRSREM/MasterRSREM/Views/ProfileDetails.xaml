@@ -3,10 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MasterRSREM.Views.ProfileDetails"
              xmlns:controls="clr-namespace:MasterRSREM.Controls">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="primary">BlueViolet</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView>
-                <controls:CircleImage Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
+        <ScrollView BackgroundColor="PapayaWhip">
+        <StackLayout  Spacing="0">
+                <Grid BackgroundColor="BlueViolet">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <controls:CircleImage x:Name="circleImageControl" Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
                                 Grid.Row="0"  Aspect="AspectFit">
                     <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -21,9 +36,54 @@
                         </OnPlatform>
                     </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
-            </ScrollView>
-            <Label Text="Settings go here" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+                    <Label  Grid.Column="1" Grid.Row="1" Margin="5" x:Name="userNameLabel" FontSize="Small" BackgroundColor="BlueViolet"  TextColor="PapayaWhip"/>
+                    <Button x:Name="changePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Change Pic" Clicked="changePicButton_Clicked"/>
+                </Grid>
+                <Grid Margin="10,30,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="10" TextColor="{StaticResource primary}" Text="Email ID : " HeightRequest="40" HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="Small"  Grid.Row="0" Grid.Column="0"/>
+                    <Label Margin="10" TextColor="{StaticResource primary}" x:Name="emailIdLabel" Text="chetan.sudeep2004@gmail.com" HeightRequest="40" HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="Small"  Grid.Row="0" Grid.Column="1"/>
+                </Grid>
+                <StackLayout Margin="20,10,20,0">
+                    <Label FontAttributes="Bold"  TextColor="{StaticResource primary}" x:Name="paymentPreferenceLabel" Text="Payment Preference" HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" FontSize="Medium"/>
+                </StackLayout>
+                <Grid Margin="20,0,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                    <Label  TextColor="{StaticResource primary}" x:Name="cardNumberLabel" Text="12345678912" Grid.Row="0" Grid.Column="0" HeightRequest="40" HorizontalTextAlignment="Start"
+                          VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" FontSize="Medium"/>
+                    <Button BackgroundColor="PapayaWhip" TextColor="DeepPink" FontSize="Small"
+                         HeightRequest="30" HorizontalOptions="EndAndExpand" x:Name="changeCardDetailsButton" Text="Change Card Payment" Grid.Row="0" Grid.Column="1" Clicked="changeCardDetailsButton_Clicked"/>
+            </Grid>
+                <StackLayout Margin="5,0,10,10" Orientation="Vertical">
+                    <Button BackgroundColor="PapayaWhip" Margin="10" TextColor="DeepPink" x:Name="termsAndConditionButton" FontSize="Small"
+                         HeightRequest="40" HorizontalOptions="StartAndExpand" Text="Terms And Conditions"  Clicked="termsAndConditionButton_Clicked"/>
 
+
+                    <Button BackgroundColor="PapayaWhip" Margin="10"  TextColor="DeepPink" x:Name="changePasswordButton" Text="Change Password" FontSize="Small"
+                         HeightRequest="40" HorizontalOptions="StartAndExpand"  Clicked="changePasswordButton_Clicked"/>
+
+                    <Button BackgroundColor="PapayaWhip" Margin="10"  TextColor="DeepPink" x:Name="signOutButton" Text="Log Off"  FontSize="Small"
+                         HeightRequest="40" HorizontalOptions="StartAndExpand" Clicked="signOutButton_Clicked"/>
+                </StackLayout>
+
+                
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
