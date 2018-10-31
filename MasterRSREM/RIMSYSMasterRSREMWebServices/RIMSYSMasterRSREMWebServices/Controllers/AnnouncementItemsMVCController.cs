@@ -46,7 +46,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description")] AnnouncementItems announcementItems)
+        public ActionResult Create([Bind(Include = "ID,EmailId,Title,Description")] AnnouncementItems announcementItems)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description")] AnnouncementItems announcementItems)
+        public ActionResult Edit([Bind(Include = "ID,EmailId,Title,Description")] AnnouncementItems announcementItems)
         {
             if (ModelState.IsValid)
             {
