@@ -64,6 +64,8 @@ namespace MasterRSREM.Views
                     BinaryReader br = new BinaryReader(imageStream);
                     imageByte = br.ReadBytes((int)imageStream.Length);
 
+
+
                     circleImageControl.Source = ImageSource.FromStream(() =>
                     {
                         var stream = photo.GetStream();

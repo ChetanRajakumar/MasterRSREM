@@ -20,7 +20,7 @@
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="40"/>
                   </Grid.RowDefinitions>
-                            <controls:CircleImage Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
+                            <controls:CircleImage x:Name="circleImageControl" Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
                                 Grid.Row="0"  Aspect="AspectFit">
                                 <controls:CircleImage.WidthRequest>
                                     <OnPlatform x:TypeArguments="x:Double">

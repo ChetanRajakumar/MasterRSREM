@@ -211,10 +211,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AnnouncementItems.cs" />
-    <Compile Include="Models\Categories.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\MaintainenceRequestEntities.cs" />
     <Compile Include="Models\RIMSYSMasterRSREMContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

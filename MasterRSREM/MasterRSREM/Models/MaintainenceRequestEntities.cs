@@ -12,7 +12,13 @@ namespace MasterRSREM.Models
         public string RequestDescription { get; set; }
         public string AccessInstructions { get; set; }
         public byte[] VoiceRequest { get; set; }
-        public byte[] ImagesList { get; set; }
+        public byte[] RequestImage1 { get; set; }
+
+        public byte[] RequestImage2 { get; set; }
+        public byte[] RequestImage3 { get; set; }
+        public byte[] RequestImage4 { get; set; }
+        public byte[] RequestImage5 { get; set; }
+
 
         public DateTime RequestDate { get; set; }
 

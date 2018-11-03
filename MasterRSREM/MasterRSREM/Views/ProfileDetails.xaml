@@ -21,7 +21,7 @@
                         <RowDefinition Height="200"/>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <controls:CircleImage x:Name="circleImageControl" Margin="20,10,0,10" Source="rajakumar.jpg" Grid.Column="1"
+                    <controls:CircleImage x:Name="circleImageControl" Margin="20,10,0,10" Grid.Column="1"
                                 Grid.Row="0"  Aspect="AspectFit">
                     <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
@@ -37,7 +37,7 @@
                     </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
                     <Label  Grid.Column="1" Grid.Row="1" Margin="5" x:Name="userNameLabel" FontSize="Small" BackgroundColor="BlueViolet"  TextColor="PapayaWhip"/>
-                    <Button x:Name="changePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Change Pic" Clicked="changePicButton_Clicked"/>
+                    <Button x:Name="changePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Set Pic" Clicked="changePicButton_Clicked"/>
                 </Grid>
                 <Grid Margin="10,30,10,10">
                     <Grid.RowDefinitions>

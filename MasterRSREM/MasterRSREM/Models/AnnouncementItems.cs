@@ -8,7 +8,7 @@ namespace MasterRSREM.Models
     public class AnnouncementItems
     {
             [PrimaryKey, AutoIncrement]
-            public int ID { get; set; }
+            public int Id { get; set; }
 
             public string EmailId { get; set; }
             public string Title { get; set; }

@@ -19,5 +19,13 @@ namespace MasterRSREM.Models
 
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
+
+        public string GovernmentIdentityType { get; set; }
+        public string GovernmentIdentityNumber { get; set; }
+        public byte[] ProfilePic { get; set; }
+        public byte[] RentalAgreementDocument { get; set; }
+
+        
+
     }
 }
