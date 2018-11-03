@@ -10,107 +10,107 @@ using RIMSYSMasterRSREMWebServices.Models;
 
 namespace RIMSYSMasterRSREMWebServices.Controllers
 {
-    public class MaintainenceRequestEntitiesMVCController : Controller
+    public class ClubHouseTablesMVCController : Controller
     {
         private RIMSYSMasterRSREMContext db = new RIMSYSMasterRSREMContext();
 
-        // GET: MaintainenceRequestEntitiesMVC
+        // GET: ClubHouseTablesMVC
         public ActionResult Index()
         {
-            return View(db.MaintainenceRequestEntities.ToList());
+            return View(db.ClubHouseTables.ToList());
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Details/5
+        // GET: ClubHouseTablesMVC/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            ClubHouseTable clubHouseTable = db.ClubHouseTables.Find(id);
+            if (clubHouseTable == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(clubHouseTable);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Create
+        // GET: ClubHouseTablesMVC/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Create
+        // POST: ClubHouseTablesMVC/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EmailId,Category,RequestDescription,AccessInstructions,VoiceRequest,RequestImage1,RequestImage2,RequestImage3,RequestImage4,RequestImage5,RequestDate,Status")] MaintainenceRequestEntities maintainenceRequestEntities)
+        public ActionResult Create([Bind(Include = "Id,EmailId,Purpose,Description,RequestDate,PaymentStatus")] ClubHouseTable clubHouseTable)
         {
             if (ModelState.IsValid)
             {
-                db.MaintainenceRequestEntities.Add(maintainenceRequestEntities);
+                db.ClubHouseTables.Add(clubHouseTable);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(maintainenceRequestEntities);
+            return View(clubHouseTable);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Edit/5
+        // GET: ClubHouseTablesMVC/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            ClubHouseTable clubHouseTable = db.ClubHouseTables.Find(id);
+            if (clubHouseTable == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(clubHouseTable);
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Edit/5
+        // POST: ClubHouseTablesMVC/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EmailId,Category,RequestDescription,AccessInstructions,VoiceRequest,RequestImage1,RequestImage2,RequestImage3,RequestImage4,RequestImage5,RequestDate,Status")] MaintainenceRequestEntities maintainenceRequestEntities)
+        public ActionResult Edit([Bind(Include = "Id,EmailId,Purpose,Description,RequestDate,PaymentStatus")] ClubHouseTable clubHouseTable)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(maintainenceRequestEntities).State = EntityState.Modified;
+                db.Entry(clubHouseTable).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(maintainenceRequestEntities);
+            return View(clubHouseTable);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Delete/5
+        // GET: ClubHouseTablesMVC/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            ClubHouseTable clubHouseTable = db.ClubHouseTables.Find(id);
+            if (clubHouseTable == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(clubHouseTable);
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Delete/5
+        // POST: ClubHouseTablesMVC/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            db.MaintainenceRequestEntities.Remove(maintainenceRequestEntities);
+            ClubHouseTable clubHouseTable = db.ClubHouseTables.Find(id);
+            db.ClubHouseTables.Remove(clubHouseTable);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

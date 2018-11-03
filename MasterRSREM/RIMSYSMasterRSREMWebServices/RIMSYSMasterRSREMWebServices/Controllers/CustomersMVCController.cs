@@ -46,7 +46,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Type,FirstName,LastName,Password,EmailID,PhoneNumber,SecurityQuestion,SecurityAnswer")] Customer customer)
+        public ActionResult Create([Bind(Include = "ID,Type,FirstName,LastName,Password,EmailID,PhoneNumber,SecurityQuestion,SecurityAnswer,GovernmentIdentityType,GovernmentIdentityNumber,ProfilePic,RentalAgreementDocument")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Type,FirstName,LastName,Password,EmailID,PhoneNumber,SecurityQuestion,SecurityAnswer")] Customer customer)
+        public ActionResult Edit([Bind(Include = "ID,Type,FirstName,LastName,Password,EmailID,PhoneNumber,SecurityQuestion,SecurityAnswer,GovernmentIdentityType,GovernmentIdentityNumber,ProfilePic,RentalAgreementDocument")] Customer customer)
         {
             if (ModelState.IsValid)
             {

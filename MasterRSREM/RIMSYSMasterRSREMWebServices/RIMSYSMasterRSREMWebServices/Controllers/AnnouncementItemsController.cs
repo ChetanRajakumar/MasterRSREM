@@ -52,7 +52,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             db.AnnouncementItems.Add(announcementItems);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = announcementItems.ID }, announcementItems);
+            return CreatedAtRoute("DefaultApi", new { id = announcementItems.Id }, announcementItems);
         }
 
         // DELETE: api/AnnouncementItems/5

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RIMSYSMasterRSREMWebServices.Models.AnnouncementItems>
+﻿@model IEnumerable<RIMSYSMasterRSREMWebServices.Models.ClubHouseTable>
 
 @{
     ViewBag.Title = "Index";
@@ -15,10 +15,16 @@
             @Html.DisplayNameFor(model => model.EmailId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Purpose)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
         </th>
         <th></th>
     </tr>
@@ -29,10 +35,16 @@
             @Html.DisplayFor(modelItem => item.EmailId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Purpose)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentStatus)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

@@ -165,7 +165,7 @@ namespace MasterRSREM.Views
             {
                 maintainenceRequestItem.VoiceRequest = System.IO.File.ReadAllBytes(RecordHelper.audioFilePath);
             }
-            maintainenceRequestItem.ImagesList = imageByte;
+            maintainenceRequestItem.RequestImage1 = imageByte;
             maintainenceRequestItem.RequestDescription = DescriptionEntry.Text;
             maintainenceRequestItem.RequestDate = DateTime.Today;
             maintainenceRequestItem.AccessInstructions = AccessInstEntry.Text;

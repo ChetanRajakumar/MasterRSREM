@@ -202,8 +202,12 @@
     <Compile Include="Controllers\AnnouncementItemsMVCController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CategoriesMVCController.cs" />
+    <Compile Include="Controllers\ClubHouseTablesController.cs" />
+    <Compile Include="Controllers\ClubHouseTablesMVCController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\CustomersMVCController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\EventsMVCController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MaintainenceRequestEntitiesController.cs" />
     <Compile Include="Controllers\MaintainenceRequestEntitiesMVCController.cs" />
@@ -211,6 +215,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AnnouncementItems.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\ClubHouseTable.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Events.cs" />
+    <Compile Include="Models\MaintainenceRequestEntities.cs" />
     <Compile Include="Models\RIMSYSMasterRSREMContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -300,11 +310,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\CustomersMVC\Create.cshtml" />
-    <Content Include="Views\CustomersMVC\Delete.cshtml" />
-    <Content Include="Views\CustomersMVC\Details.cshtml" />
-    <Content Include="Views\CustomersMVC\Edit.cshtml" />
-    <Content Include="Views\CustomersMVC\Index.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\AnnouncementItemsMVC\Create.cshtml" />
     <Content Include="Views\AnnouncementItemsMVC\Delete.cshtml" />
     <Content Include="Views\AnnouncementItemsMVC\Details.cshtml" />
@@ -315,20 +329,26 @@
     <Content Include="Views\CategoriesMVC\Details.cshtml" />
     <Content Include="Views\CategoriesMVC\Edit.cshtml" />
     <Content Include="Views\CategoriesMVC\Index.cshtml" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\CustomersMVC\Create.cshtml" />
+    <Content Include="Views\CustomersMVC\Delete.cshtml" />
+    <Content Include="Views\CustomersMVC\Details.cshtml" />
+    <Content Include="Views\CustomersMVC\Edit.cshtml" />
+    <Content Include="Views\CustomersMVC\Index.cshtml" />
     <Content Include="Views\MaintainenceRequestEntitiesMVC\Create.cshtml" />
     <Content Include="Views\MaintainenceRequestEntitiesMVC\Delete.cshtml" />
     <Content Include="Views\MaintainenceRequestEntitiesMVC\Details.cshtml" />
     <Content Include="Views\MaintainenceRequestEntitiesMVC\Edit.cshtml" />
     <Content Include="Views\MaintainenceRequestEntitiesMVC\Index.cshtml" />
+    <Content Include="Views\EventsMVC\Create.cshtml" />
+    <Content Include="Views\EventsMVC\Delete.cshtml" />
+    <Content Include="Views\EventsMVC\Details.cshtml" />
+    <Content Include="Views\EventsMVC\Edit.cshtml" />
+    <Content Include="Views\EventsMVC\Index.cshtml" />
+    <Content Include="Views\ClubHouseTablesMVC\Create.cshtml" />
+    <Content Include="Views\ClubHouseTablesMVC\Delete.cshtml" />
+    <Content Include="Views\ClubHouseTablesMVC\Details.cshtml" />
+    <Content Include="Views\ClubHouseTablesMVC\Edit.cshtml" />
+    <Content Include="Views\ClubHouseTablesMVC\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

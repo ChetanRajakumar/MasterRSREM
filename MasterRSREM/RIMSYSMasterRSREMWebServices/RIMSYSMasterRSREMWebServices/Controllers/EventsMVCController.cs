@@ -10,107 +10,107 @@ using RIMSYSMasterRSREMWebServices.Models;
 
 namespace RIMSYSMasterRSREMWebServices.Controllers
 {
-    public class MaintainenceRequestEntitiesMVCController : Controller
+    public class EventsMVCController : Controller
     {
         private RIMSYSMasterRSREMContext db = new RIMSYSMasterRSREMContext();
 
-        // GET: MaintainenceRequestEntitiesMVC
+        // GET: EventsMVC
         public ActionResult Index()
         {
-            return View(db.MaintainenceRequestEntities.ToList());
+            return View(db.Events.ToList());
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Details/5
+        // GET: EventsMVC/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            Events events = db.Events.Find(id);
+            if (events == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(events);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Create
+        // GET: EventsMVC/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Create
+        // POST: EventsMVC/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,EmailId,Category,RequestDescription,AccessInstructions,VoiceRequest,RequestImage1,RequestImage2,RequestImage3,RequestImage4,RequestImage5,RequestDate,Status")] MaintainenceRequestEntities maintainenceRequestEntities)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
         {
             if (ModelState.IsValid)
             {
-                db.MaintainenceRequestEntities.Add(maintainenceRequestEntities);
+                db.Events.Add(events);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(maintainenceRequestEntities);
+            return View(events);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Edit/5
+        // GET: EventsMVC/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            Events events = db.Events.Find(id);
+            if (events == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(events);
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Edit/5
+        // POST: EventsMVC/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EmailId,Category,RequestDescription,AccessInstructions,VoiceRequest,RequestImage1,RequestImage2,RequestImage3,RequestImage4,RequestImage5,RequestDate,Status")] MaintainenceRequestEntities maintainenceRequestEntities)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(maintainenceRequestEntities).State = EntityState.Modified;
+                db.Entry(events).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(maintainenceRequestEntities);
+            return View(events);
         }
 
-        // GET: MaintainenceRequestEntitiesMVC/Delete/5
+        // GET: EventsMVC/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            if (maintainenceRequestEntities == null)
+            Events events = db.Events.Find(id);
+            if (events == null)
             {
                 return HttpNotFound();
             }
-            return View(maintainenceRequestEntities);
+            return View(events);
         }
 
-        // POST: MaintainenceRequestEntitiesMVC/Delete/5
+        // POST: EventsMVC/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MaintainenceRequestEntities maintainenceRequestEntities = db.MaintainenceRequestEntities.Find(id);
-            db.MaintainenceRequestEntities.Remove(maintainenceRequestEntities);
+            Events events = db.Events.Find(id);
+            db.Events.Remove(events);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

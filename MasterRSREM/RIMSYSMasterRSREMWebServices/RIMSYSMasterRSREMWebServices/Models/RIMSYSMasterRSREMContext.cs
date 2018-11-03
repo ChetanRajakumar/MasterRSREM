@@ -26,5 +26,9 @@ namespace RIMSYSMasterRSREMWebServices.Models
         public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.AnnouncementItems> AnnouncementItems { get; set; }
 
         public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.MaintainenceRequestEntities> MaintainenceRequestEntities { get; set; }
+
+        public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.Events> Events { get; set; }
+
+        public System.Data.Entity.DbSet<RIMSYSMasterRSREMWebServices.Models.ClubHouseTable> ClubHouseTables { get; set; }
     }
 }

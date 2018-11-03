@@ -44,7 +44,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             db.Categories.Add(categories);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = categories.ID }, categories);
+            return CreatedAtRoute("DefaultApi", new { id = categories.Id }, categories);
         }
 
         // DELETE: api/Categories/5
