@@ -35,6 +35,18 @@
         <th>
             @Html.DisplayNameFor(model => model.SecurityAnswer)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GovernmentIdentityType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GovernmentIdentityNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfilePic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalAgreementDocument)
+        </th>
         <th></th>
     </tr>
 
@@ -63,6 +75,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SecurityAnswer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GovernmentIdentityType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GovernmentIdentityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfilePic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalAgreementDocument)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

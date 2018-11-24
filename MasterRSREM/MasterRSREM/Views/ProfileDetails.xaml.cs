@@ -24,6 +24,7 @@ namespace MasterRSREM.Views
         {
             InitializeComponent();
             userNameLabel.Text = MasterHomePageMaster.UserName;
+            emailIdLabel.Text = MasterHomePageMaster.LoggedInEmailID;
         }
 
         private void changePasswordButton_Clicked(object sender, EventArgs e)

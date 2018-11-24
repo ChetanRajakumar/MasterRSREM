@@ -15,11 +15,14 @@ namespace MasterRSREM.Data
         AnnouncementRestClient<AnnouncementItems> announcementItemsRestClient = new AnnouncementRestClient<AnnouncementItems>();
         CategoriesRestClient<Categories> categoriesRestClient = new CategoriesRestClient<Categories>();
         MaintainenceRequestRestClient<MaintainenceRequestEntities> maintainenceRequestRestClient = new MaintainenceRequestRestClient<MaintainenceRequestEntities>();
+        EventsClient<Events> eventRestClientEntities = new EventsClient<Events>();
+
 
         Customer customerItem = new Customer();
         AnnouncementItems announcementItem = new AnnouncementItems();
         Categories categorieItem = new Categories();
         MaintainenceRequestEntities maintainenceRequestItem = new MaintainenceRequestEntities();
+        Events eventRequestItem = new Events();
 
         public static string CustomerEmailID { get; set; }
 
@@ -130,6 +133,33 @@ namespace MasterRSREM.Data
         public async Task<bool> DeleteMaintainenceRequestAsync(string emailID)
         {
             bool success = await maintainenceRequestRestClient.DeleteAsync(emailID);
+            return success;
+        }
+
+        public async Task<List<Events>> GetEventsRequestItemsAsync()
+        {
+            List<Events> eventRequestEntities = new List<Events>();
+            eventRequestEntities = await eventRestClientEntities.GetAsync();
+            return eventRequestEntities;
+        }
+
+        public async Task<List<Events>> GetEventsRequestItemsAsync(string title)
+        {
+            List<Events> eventRequestEntities = new List<Events>();
+            eventRequestEntities = await eventRestClientEntities.GetAsync(title);
+            return eventRequestEntities;
+        }
+
+
+        public async Task<bool> SaveEventsRequestItemAsync(Events eventsRequestItem)
+        {
+            bool success = await eventRestClientEntities.PostAsync(eventsRequestItem);
+            return success;
+        }
+
+        public async Task<bool> DeleteEventsRequestAsync(string title)
+        {
+            bool success = await eventRestClientEntities.DeleteAsync(title);
             return success;
         }
 

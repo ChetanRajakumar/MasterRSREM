@@ -11,7 +11,7 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="CategoryPicker" Margin="20,0,20,0" FontSize="Small" Title="Select Category" TextColor="DarkSlateGray" ItemsSource="{Binding CategoryItems}" ItemDisplayBinding="{Binding Category}" SelectedIndex="0" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged" />
+            <Picker x:Name="CategoryPicker" Margin="20,20,20,0" FontSize="Small" Title="Select Category" TextColor="DarkSlateGray" ItemsSource="{Binding CategoryItems}" ItemDisplayBinding="{Binding Category}" SelectedIndex="0" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged" />
             <Entry x:Name="DescriptionEntry" FontSize="Small"  Margin="20,0,20,0" 
                          HeightRequest="50" 
                          Placeholder="Description" TextColor="DarkSlateGray">
@@ -26,14 +26,14 @@
                     <local:BackgroundEntryEffect />
                 </Entry.Effects>
             </Entry>
-            <Label Text="Voice Memo" Margin="20"></Label>
-            <StackLayout Orientation="Horizontal" Margin="20">
-                <Button StyleClass="Link" Text="Record" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="RecordButton_Clicked"/>
-                <Button StyleClass="Link" Text="Pause" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="PauseButton_Clicked"/>
-                <Button StyleClass="Link" Text="Stop" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="StopButton_Clicked"/>
+            <Label Text="Voice Memo" IsVisible="False" Margin="20"></Label>
+            <StackLayout Orientation="Horizontal" Margin="20" IsVisible="False">
+                <Button StyleClass="Link" Text="Record" IsVisible="False" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="RecordButton_Clicked"/>
+                <Button StyleClass="Link" Text="Pause" IsVisible="False" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="PauseButton_Clicked"/>
+                <Button StyleClass="Link" Text="Stop" IsVisible="False" HeightRequest="40" FontSize="Small"  TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="StopButton_Clicked"/>
              </StackLayout>
             <ScrollView Orientation="Both">
-            <Grid Margin="20,0,20,0">
+            <Grid Margin="20,20,20,0">
                 <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>

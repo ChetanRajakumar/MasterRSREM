@@ -12,24 +12,22 @@
                     <DataTemplate>
                         <ViewCell>
                             <Grid Padding="15,10" BackgroundColor="PapayaWhip">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Margin="10" Grid.Column="0" Grid.Row="0" FontSize="Medium" StyleClass="Link" Text="{Binding Category}" 
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Margin="10" Grid.Column="0" Grid.Row="0" FontSize="Medium" StyleClass="Link" Text="{Binding Category}" 
                                         TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
-                                    <Label Margin="10" Grid.Column="1" Grid.Row="0" FontSize="Medium" StyleClass="Link" Text="{Binding RequestDate}" 
+                                <Label Margin="10" Grid.Column="1" Grid.Row="0" FontSize="Medium" StyleClass="Link" Text="{Binding RequestDate}" 
                                         TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
-                                    <Label Margin="10" Grid.Column="0" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="{Binding RequestDescription}" 
+                                <Label Margin="10" Grid.Column="0" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="{Binding RequestDescription}" 
                                         TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
-                                    <Label Margin="10" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="{Binding Status}" 
+                                <Label Margin="10" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="{Binding Status}" 
                                     TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
-                                </Grid>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

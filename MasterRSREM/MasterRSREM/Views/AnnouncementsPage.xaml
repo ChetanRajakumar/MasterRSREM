@@ -15,7 +15,7 @@
                                 <StackLayout Orientation="Vertical">
                                     <Label Margin="10" FontSize="Medium" StyleClass="Link" Text="{Binding Title}" 
                                     TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
-                                <Label Margin="10"  FontSize="Small" StyleClass="Link" Text="{Binding Description}" 
+                                    <Label Margin="10"  FontSize="Small" StyleClass="Link" Text="{Binding Description}" 
                                     TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
                                 </StackLayout>
                             </Grid>

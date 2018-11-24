@@ -9,17 +9,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="You may either speak with our executive or drop us an email regarding your query"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource primary}"
-                          TextColor="White" />
-            <StackLayout Orientation="Horizontal" Padding="20,20,20,0">
-                <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Call" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="CallButton_Clicked">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Label Margin="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="You may either speak with our executive or drop us an email regarding your query"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Medium" />
+            <Button Margin="20" Grid.Column="0" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="Call"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink" Clicked="CallButton_Clicked">
                 </Button>
-                <Button Margin="0,0,20,0" FontSize="Small" StyleClass="Link" Text="Email" HeightRequest="40" HorizontalOptions="Center" TextColor="White" BackgroundColor="{StaticResource primary}" Clicked="EmailButton_Clicked">
-                </Button>
-            </StackLayout>
-        </StackLayout>
+            <Button Margin="20" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="Email"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink"  Clicked="EmailButton_Clicked">
+            </Button>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

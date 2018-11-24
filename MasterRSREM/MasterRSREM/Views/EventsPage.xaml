@@ -4,9 +4,54 @@
              x:Class="MasterRSREM.Views.EventsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to events page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="Default"
+              HasUnevenRows="true"
+              ItemsSource="{Binding Events}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid Padding="15,10" BackgroundColor="PapayaWhip">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Margin="10" Grid.Column="0" Grid.Row="0" FontSize="Medium" FontAttributes="Bold" StyleClass="Link" Text="{Binding Title}" 
+                                        TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                                <Label Margin="10" Grid.Column="1" Grid.Row="0" FontSize="Medium" StyleClass="Link" Text="{Binding EventDate}" 
+                                        TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                                <Label Margin="10" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontSize="Small" StyleClass="Link" Text="{Binding Description}" 
+                                        TextColor="BlueViolet" BackgroundColor="PapayaWhip"/>
+                                <ScrollView Orientation="Both" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                                    <Grid Margin="20,20,20,20">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto"  />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="PhotoImage1" Grid.Row="0" Grid.Column="0" Source="{Binding EventPic1}"/>
+                                        <Image x:Name="PhotoImage2" Grid.Row="0" Grid.Column="1" Source="{Binding EventPic2}"/>
+                                        <Image x:Name="PhotoImage3" Grid.Row="0" Grid.Column="2" Source="{Binding EventPic3}"/>
+                                        <Image x:Name="PhotoImage4" Grid.Row="0" Grid.Column="3" Source="{Binding EventPic4}"/>
+                                        <Image x:Name="PhotoImage5" Grid.Row="0" Grid.Column="4" Source="{Binding EventPic5}"/>
+                                    </Grid>
+                                </ScrollView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

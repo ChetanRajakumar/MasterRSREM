@@ -46,7 +46,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
+        public ActionResult Create([Bind(Include = "Id,Title,Description,EventDate,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
+        public ActionResult Edit([Bind(Include = "Id,Title,Description,EventDate,EventPic1,EventPic2,EventPic3,EventPic4,EventPic5")] Events events)
         {
             if (ModelState.IsValid)
             {

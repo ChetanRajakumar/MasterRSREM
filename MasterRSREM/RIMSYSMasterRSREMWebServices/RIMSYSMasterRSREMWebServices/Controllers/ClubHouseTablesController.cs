@@ -101,6 +101,22 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             return Ok(clubHouseTable);
         }
 
+        // DELETE: api/ClubHouseTable/title
+        [ResponseType(typeof(ClubHouseTable))]
+        public IHttpActionResult DeleteFromClubHouseTable(string emailId)
+        {
+            ClubHouseTable clubHouseItem = db.ClubHouseTables.Where(c => c.EmailId == emailId).FirstOrDefaultAsync<ClubHouseTable>().Result;
+            if (clubHouseItem == null)
+            {
+                return NotFound();
+            }
+
+            db.ClubHouseTables.Remove(clubHouseItem);
+            db.SaveChanges();
+
+            return Ok(clubHouseItem);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using RIMSYSMasterRSREMWebServices.Models;
@@ -33,6 +34,15 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             }
 
             return Ok(events);
+        }
+
+        // GET: api/Events/5
+        // GET: api/Events/GetEventsByTitle/?emailId=chetan.sudeep2004@gmail.com
+        [ResponseType(typeof(Events))]
+        [System.Web.Mvc.ActionName("GetEventsByTitle")]
+        public Task<Events> GetEventsByTitle(string title)
+        {
+            return db.Events.Where(c => c.Title == title).FirstOrDefaultAsync<Events>();
         }
 
         // PUT: api/Events/5
@@ -90,6 +100,22 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         public IHttpActionResult DeleteEvents(int id)
         {
             Events events = db.Events.Find(id);
+            if (events == null)
+            {
+                return NotFound();
+            }
+
+            db.Events.Remove(events);
+            db.SaveChanges();
+
+            return Ok(events);
+        }
+
+        // DELETE: api/Events/title
+        [ResponseType(typeof(Events))]
+        public IHttpActionResult DeleteEvents(string title)
+        {
+            Events events = db.Events.Where(c => c.Title == title).FirstOrDefaultAsync<Events>().Result;
             if (events == null)
             {
                 return NotFound();
