@@ -12,19 +12,19 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Margin="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="You may either speak with our executive or drop us an email regarding your query"
-                VerticalOptions="FillAndExpand" 
+            <Label Margin="20,40,20,40" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="You may either speak with our executive or drop us an email regarding your query"
+                VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="FillAndExpand" 
                           TextColor="DeepPink" FontSize="Medium" />
-            <Button Margin="20" Grid.Column="0" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="Call"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink" Clicked="CallButton_Clicked">
+            <Button Margin="20" Grid.Column="0" Grid.Row="1" FontSize="Small" HeightRequest="40" StyleClass="Link" Text="Call"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink" Clicked="CallButton_Clicked">
                 </Button>
-            <Button Margin="20" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" Text="Email"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink"  Clicked="EmailButton_Clicked">
+            <Button Margin="40,10,20,20" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" HeightRequest="40" Text="Email"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink"  Clicked="EmailButton_Clicked">
             </Button>
         </Grid>
     </ContentPage.Content>
