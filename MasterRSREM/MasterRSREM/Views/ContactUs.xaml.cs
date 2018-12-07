@@ -1,5 +1,8 @@
-﻿using System;
+﻿using MasterRSREM.Models;
+using MasterRSREM.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +18,13 @@ namespace MasterRSREM.Views
 		public ContactUs ()
 		{
 			InitializeComponent ();
-		}
+            contactUsMessageLabel.Text = " Hello  " + MasterHomePageMaster.UserName;
+            callMessageLabel.Text = " +91 - 9663413720 or +91 - 1234567890";
+            emailMessageLabel.Text = "chetan.sudeep2004@gmail.com or      bal.rajakumar@gmail.com";
+            ContactUsViewModel contactUsViewModel  = new ContactUsViewModel();
+            contactUsViewModel.ContactUsViewModelGetProfilePic(MasterHomePageMaster.LoggedInEmailID);
+            BindingContext = contactUsViewModel;
+        }
 
         private void CallButton_Clicked(object sender, EventArgs e)
         {

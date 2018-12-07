@@ -50,8 +50,23 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
+                //db.Customers.Add(customer);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+
+                if (customer.ID == 0)
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    //customer = db.Customers.Find(customer.ID);
+                    db.Entry(customer).State = EntityState.Modified;
+                    db.SaveChanges();
+                        
+                    
+                }
                 return RedirectToAction("Index");
             }
 

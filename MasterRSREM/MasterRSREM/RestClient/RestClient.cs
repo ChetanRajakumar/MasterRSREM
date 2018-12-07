@@ -53,6 +53,7 @@ namespace MasterRSREM.RestClient
             return result.IsSuccessStatusCode;
         }
 
+        
         public async Task<bool> DeleteAsync(string emailId)
         {
             emailId = "?emailId=" + emailId;

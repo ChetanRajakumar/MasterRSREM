@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MasterRSREM.Views.ProfileDetails"
-             xmlns:controls="clr-namespace:MasterRSREM.Controls">
+             xmlns:controls="clr-namespace:MasterRSREM.Controls"
+             xmlns:local="clr-namespace:MasterRSREM.Effects">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="primary">BlueViolet</Color>
@@ -37,7 +38,8 @@
                     </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
                     <Label  Grid.Column="1" Grid.Row="1" Margin="5" x:Name="userNameLabel" FontSize="Small" BackgroundColor="BlueViolet"  TextColor="PapayaWhip"/>
-                    <Button x:Name="changePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Set Pic" Clicked="changePicButton_Clicked"/>
+                    <Button x:Name="takePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Take Pic" Clicked="takePicButton_Clicked"/>
+                    <Button x:Name="changePicButton" Grid.Column="3" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Set Pic" Clicked="changePicButton_Clicked"/>
                 </Grid>
                 <Grid Margin="10,30,10,10">
                     <Grid.RowDefinitions>
@@ -77,12 +79,32 @@
                     <Button BackgroundColor="PapayaWhip" Margin="10"  TextColor="DeepPink" x:Name="changePasswordButton" Text="Change Password" FontSize="Small"
                          HeightRequest="40" HorizontalOptions="StartAndExpand"  Clicked="changePasswordButton_Clicked"/>
 
+                    <Entry Margin="10" TextColor="DeepPink" BackgroundColor="PapayaWhip"
+                        HeightRequest="40" IsPassword="true" FontSize="Small"
+                        Placeholder="Current Password : " x:Name="currentPasswordEntry" IsVisible="False">
+                        <Entry.Effects>
+                            <local:BackgroundEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+
+                    <Entry Margin="10" TextColor="DeepPink" BackgroundColor="PapayaWhip" IsVisible="False"
+                        HeightRequest="40" IsPassword="true" FontSize="Small"
+                        Placeholder="New Password : " x:Name="newPasswordEntry">
+                        <Entry.Effects>
+                            <local:BackgroundEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+
+                    <Label x:Name="wrongPasswordLabel" Margin="10" TextColor="DeepPink" IsVisible="False" Text="Current Password does not match, Please try Again " HeightRequest="40" 
+                          HorizontalOptions="StartAndExpand" FontSize="Small" FontAttributes="Bold"  BackgroundColor="PapayaWhip"/>
+
+
+
                     <Button BackgroundColor="PapayaWhip" Margin="10"  TextColor="DeepPink" x:Name="signOutButton" Text="Log Off"  FontSize="Small"
                          HeightRequest="40" HorizontalOptions="StartAndExpand" Clicked="signOutButton_Clicked"/>
                 </StackLayout>
-
-                
-
+                <Button Margin="20" TextColor="White" BackgroundColor="{StaticResource primary}" x:Name="updateProfileButton" FontSize="Medium"
+                         HeightRequest="40" HorizontalOptions="Center" Text="Update Profile"  Clicked="updateProfileButton_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

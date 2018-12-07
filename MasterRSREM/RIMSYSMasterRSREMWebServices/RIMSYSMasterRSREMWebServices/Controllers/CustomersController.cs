@@ -39,12 +39,35 @@ namespace RIMSYSMasterRSREMWebServices.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.Customers.Add(customer);
-            db.SaveChanges();
-
+            if (customer.ID == 0)
+            {
+                db.Customers.Add(customer);
+                db.SaveChanges();
+            }
+            else
+            {
+                db.Entry(customer).State = EntityState.Modified;
+                db.SaveChanges();
+                return Ok(customer);
+            }
             return CreatedAtRoute("DefaultApi", new { id = customer.ID }, customer);
         }
+
+        // POST: api/Customers
+        //[ResponseType(typeof(Customer))]
+        //public IHttpActionResult PostCustomer(byte[] profilePic, string emailID)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    Customer customer = db.Customers.Where(c => c.EmailID == emailID).FirstOrDefaultAsync<Customer>().Result;
+        //    customer.ProfilePic = profilePic;
+        //    db.Customers.Add(customer);
+        //    db.SaveChanges();
+        //    return Ok(customer);
+        //}
+
 
         // DELETE: api/Customers/5
         [ResponseType(typeof(Customer))]

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MasterRSREM.Views.ContactUs">
+             x:Class="MasterRSREM.Views.ContactUs"
+              xmlns:controls="clr-namespace:MasterRSREM.Controls">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="primary">BlueViolet</Color>
@@ -9,23 +10,69 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Margin="20,40,20,40" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="You may either speak with our executive or drop us an email regarding your query"
+        <ScrollView BackgroundColor="PapayaWhip">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="contactUsMessageLabel" Margin="20,30,20,20" Grid.Row="0" 
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="FillAndExpand" 
-                          TextColor="DeepPink" FontSize="Medium" />
-            <Button Margin="20" Grid.Column="0" Grid.Row="1" FontSize="Small" HeightRequest="40" StyleClass="Link" Text="Call"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink" Clicked="CallButton_Clicked">
-                </Button>
-            <Button Margin="40,10,20,20" Grid.Column="1" Grid.Row="1" FontSize="Small" StyleClass="Link" HeightRequest="40" Text="Email"  HorizontalOptions="Center" BackgroundColor="PapayaWhip" TextColor="DeepPink"  Clicked="EmailButton_Clicked">
-            </Button>
-        </Grid>
+                          TextColor="DeepPink" FontSize="Medium" FontAttributes="Bold" />
+                <controls:CircleImage x:Name="circleImageControl" Margin="20" Grid.Column="0"
+                                Grid.Row="1"   Aspect="AspectFit" Source="{Binding CircleImageSource}">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">100</On>
+                            <On Platform="WinPhone">100</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">75</On>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+                <Label  Margin="80,10,20,20" Grid.Row="2" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Small" Text="What can we help you with?"/>
+
+                <Label  Margin="20,0,20,20" Grid.Row="3" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                          TextColor="DeepPink" FontSize="Small" Text="You may either speak with our executive or drop us an email regarding your query."/>
+
+                <Label Margin="20,20,20,0" Grid.Row="4" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Small" Text="Call Us : " />
+                
+                <Label x:Name="callMessageLabel" Margin="80,0,20,10" Grid.Row="5" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Small" />
+
+                <Label  Margin="20,20,20,0" Grid.Row="6" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Small" Text="Email Us : " />
+
+                <Label x:Name="emailMessageLabel" Margin="100,0,20,20" Grid.Row="7" 
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand" 
+                          TextColor="DeepPink" FontSize="Small"/>
+                
+                
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
