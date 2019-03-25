@@ -29,6 +29,12 @@ namespace MasterRSREM.Views
             wrongPasswordLabel.IsVisible = false;
             userNameLabel.Text = MasterHomePageMaster.UserName;
             emailIdLabel.Text = MasterHomePageMaster.LoggedInEmailID;
+            GetUserProfilePic(MasterHomePageMaster.LoggedInEmailID);
+        }
+
+        public async void GetUserProfilePic(string emailId)
+        {
+            circleImageControl.Source = await GetProfilePic(emailId);
         }
 
         private void changePasswordButton_Clicked(object sender, EventArgs e)
@@ -162,6 +168,22 @@ namespace MasterRSREM.Views
             busy = false;
         }
 
+        public async Task<ImageSource> GetProfilePic(string emailId)
+        {
+            ImageSource imageSource = null;
+            Customer customerItem = new Customer();
+            customerItem = await App.Database.GetCustomerItemAsync(emailId);
+            if (customerItem != null)
+            {
+                if (customerItem.ProfilePic != null)
+                {
+                    imageSource = ImageSource.FromStream(() => new MemoryStream(customerItem.ProfilePic));
+                    OnPropertyChanged("CircleImageSource");
+                }
+
+            }
+            return imageSource;
+        }
 
         private async void TakePictureAsync(Xamarin.Forms.Image photoImage)
         {

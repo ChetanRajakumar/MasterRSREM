@@ -14,34 +14,34 @@
         <StackLayout  Spacing="0">
                 <Grid BackgroundColor="BlueViolet">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="130"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="200"/>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="50"/>
                     </Grid.RowDefinitions>
-                    <controls:CircleImage x:Name="circleImageControl" Margin="20,10,0,10" Grid.Column="1"
-                                Grid.Row="0"  Aspect="AspectFit">
-                    <controls:CircleImage.WidthRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android, iOS">75</On>
-                            <On Platform="WinPhone">75</On>
-                        </OnPlatform>
-                    </controls:CircleImage.WidthRequest>
-                    <controls:CircleImage.HeightRequest>
-                        <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android, iOS">75</On>
-                            <On Platform="WinPhone">75</On>
-                        </OnPlatform>
-                    </controls:CircleImage.HeightRequest>
-                </controls:CircleImage>
-                    <Label  Grid.Column="1" Grid.Row="1" Margin="5" x:Name="userNameLabel" FontSize="Small" BackgroundColor="BlueViolet"  TextColor="PapayaWhip"/>
-                    <Button x:Name="takePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Take Pic" Clicked="takePicButton_Clicked"/>
-                    <Button x:Name="changePicButton" Grid.Column="3" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Set Pic" Clicked="changePicButton_Clicked"/>
+                    <controls:CircleImage x:Name="circleImageControl"  Grid.Column="0" Margin="20,10,0,10"
+                                Grid.Row="0" Grid.ColumnSpan="3"   Aspect="AspectFit" Source="{Binding CircleImageSource}">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">100</On>
+                                <On Platform="WinPhone">100</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">100</On>
+                                <On Platform="WinPhone">100</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>
+                    
+                    <Label  Grid.Column="0" Grid.Row="1" Margin="20,10,0,0" x:Name="userNameLabel"  FontSize="Small" BackgroundColor="BlueViolet"  TextColor="PapayaWhip"/>
+                    <Button x:Name="takePicButton" Grid.Column="1" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Take Pic" Clicked="takePicButton_Clicked"/>
+                    <Button x:Name="changePicButton" Grid.Column="2" Grid.Row="1" FontSize="Small"  TextColor="PapayaWhip" BackgroundColor="BlueViolet" Text="Set Pic" Clicked="changePicButton_Clicked"/>
                 </Grid>
-                <Grid Margin="10,30,10,10">
+                <Grid Margin="20,30,10,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"></RowDefinition>
                     </Grid.RowDefinitions>
